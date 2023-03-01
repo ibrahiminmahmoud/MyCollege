@@ -3,14 +3,12 @@
 package com.example.mycollege.view
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
-
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.mycollege.R
@@ -28,7 +26,8 @@ fun Tables(navController: NavController) {
         drawerContent = {
             Drawer(scope = scope, scaffoldState = scaffoldState, navController = navController)
         },
-        content = {    LazyVerticalGrid(cells = GridCells.Adaptive(150.dp), content = {
+        content = {
+            LazyVerticalGrid(cells = GridCells.Adaptive(150.dp), content = {
 
             items(1) {
                 Box("جدول امتحانات",
