@@ -198,170 +198,28 @@ fun DrawerItem(  item: NavigationItem, selected: Boolean, onItemClick: (Navigati
 fun Home(navController: NavController) {
 
    LazyVerticalGrid(cells = GridCells.Adaptive(150.dp)) {
-
        items(1) {
-           Box(
-               modifier = Modifier
-                   .padding(15.dp)
-                   .background(color = Color(0xFFededed), shape = RoundedCornerShape(15.dp))
-                   .aspectRatio(1f),
-
-
-               contentAlignment = Alignment.BottomCenter
-           ) {
-               Button(
-                   onClick = { /*TODO*/ }
-               ) {
-                   Icon(
-                       painter = painterResource(id = R.drawable.ic_baseline_calendar_month_24),
-                       contentDescription = "test",
-                       modifier = Modifier
-                           .height(180.dp)
-                           .clickable { navController.navigate("calender_page") }
-                           .width(150.dp),
-                       tint =  Color(0xFF5E5A80)
-                   )
-               }
-
-               Text(text = "تقومي ",
-                  modifier = Modifier.clickable { navController.navigate("calender_page") },
-
-                   )
-           }
+           box("تقومي",R.drawable.ic_baseline_calendar_month_24,"calender_page",navController)
        }
        items(1) {
-           Box(
-               modifier = Modifier
-                   .padding(15.dp)
-                   .background(color = Color(0xFFededed), shape = RoundedCornerShape(15.dp))
-                   .aspectRatio(1f),
-               contentAlignment = Alignment.BottomCenter
-           ) {
-               Button(
-                   onClick = { /*TODO*/ }
-               ) {
-                   Icon(
-                       painter = painterResource(id = R.drawable.ic_baseline_table_view_24),
-                       contentDescription = "test",
-                       modifier = Modifier
-                           .height(180.dp)
-                           .width(150.dp)
-                           .clickable {
-                               navController.navigate("Tables_page")
-                           },
-                       tint =  Color(0xFFC6AEC7)
-
-                   )
-               }
-               Spacer(modifier = Modifier.padding(15.dp))
-
-               Box {
-                   Text(
-                       text = "جداولي",
-                       modifier = Modifier.clickable { navController.navigate("Tables_page") },
-                   )
-               }
-
-
-           }
+           box("جداولي",R.drawable.ic_baseline_table_view_24,"Tables_page",navController)
        }
        /****Lecture***/
        items(1) {
-           Box(
-               modifier = Modifier
-                   .padding(15.dp)
-                   .background(color = Color(0xFFededed), shape = RoundedCornerShape(15.dp))
-                   .aspectRatio(1f),
-               contentAlignment = Alignment.BottomCenter
-           ) {
-               Button(
-                   onClick = { /*TODO*/ }
-               ) {
-                   Icon(
-                       painter = painterResource(id = R.drawable.ic_baseline_menu_book_24),
-                       contentDescription = "test",
-                       modifier = Modifier
-                           .height(180.dp)
-                           .clickable { navController.navigate("lectures_page") }
-                           .width(150.dp),
-                       tint =  Color(0xFF806D7E)
-
-                   )
-               }
-               Spacer(modifier = Modifier.padding(15.dp))
-
-               Text(text = "محاضرات")
-
-
-           }
+           box("محاضرات",R.drawable.ic_baseline_menu_book_24,"lectures_page",navController)
        }
-              /****endLecture***/
+       /****endLecture***/
 
-              /****Start Post***/
+       /****Start Post***/
 
        items(1) {
-           Box(
-               modifier = Modifier
-                   .padding(15.dp)
-                   .background(color = Color(0xFFededed), shape = RoundedCornerShape(15.dp))
-
-                   .aspectRatio(1f),
-               contentAlignment = Alignment.BottomCenter
-           ) {
-               Button(
-                   onClick = { /*TODO*/ }
-               ) {
-                   Icon(
-                       painter = painterResource(id = R.drawable.ic_baseline_local_post_office_24),
-                       contentDescription = "test",
-                       modifier = Modifier
-                           .height(180.dp)
-                           .clickable { navController.navigate("post_page") }
-                           .width(150.dp),
-                       tint =  Color(0xFF7F462C)
-
-                   )
-               }
-               Spacer(modifier = Modifier.padding(15.dp))
-
-               Text(text = "اعلانات")
-
-
-           }
+           box("اعلانات",R.drawable.ic_baseline_local_post_office_24,"post_page",navController)
        }
-
        /****End Post***/
        /****Start result***/
 
        items(1) {
-           Box(
-               modifier = Modifier
-                   .padding(15.dp)
-                   .background(color = Color(0xFFededed), shape = RoundedCornerShape(15.dp))
-
-                   .aspectRatio(1f),
-               contentAlignment = Alignment.BottomCenter
-           ) {
-               Button(
-                   onClick = { /*TODO*/ }
-               ) {
-                   Icon(
-                       painter = painterResource(id = R.drawable.ic_outline_wysiwyg_24),
-                       contentDescription = "test",
-                       modifier = Modifier
-                           .height(180.dp)
-                           .clickable { navController.navigate("result_page") }
-                           .width(150.dp),
-                       tint =  Color(0xFFC9BE62)
-
-                   )
-               }
-               Spacer(modifier = Modifier.padding(15.dp))
-
-               Text(text = "نتيجتي")
-
-
-           }
+           box("نتيجتي",R.drawable.ic_outline_wysiwyg_24,"result_page",navController)
        }
        /****End  result***/
 
