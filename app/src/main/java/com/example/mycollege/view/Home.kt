@@ -97,24 +97,25 @@ fun Drawer(scope: CoroutineScope, scaffoldState: ScaffoldState, navController: N
 
     Column(
         modifier = Modifier
-            .background(color = Color.White)
+            .background(Color.White)
     ) {
 
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(120.dp)
-                .background(Color(0xFF98afc7)),
+                .height(130.dp)
+                .background(Color(0xFF177E89)),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
         ){
 
             Image(
-                painter = painterResource(id = R.drawable.login),
+                painter = painterResource(id = R.drawable.log),
                 contentDescription = "",
                 modifier = Modifier
-                    .height(100.dp)
-                    .fillMaxWidth()
+                    .height(360.dp)
+                    .width(190.dp)
+                    //.fillMaxWidth()
                     .padding(10.dp)
             )
 

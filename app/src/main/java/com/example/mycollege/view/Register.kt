@@ -12,7 +12,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -25,7 +24,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.mycollege.R
-import com.example.mycollege.ui.theme.Purple200
 import com.example.mycollege.ui.theme.Purple500
 
 @Composable
@@ -52,10 +50,7 @@ fun Register(navController: NavController){
    }
 
 
-    var conicon = if(passwordVisibility.value)
-        painterResource(id = R.drawable.ic_baseline_remove_red_eye_24)
-    else
-        painterResource(id = R.drawable.ic_baseline_visibility_off_24)
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -222,7 +217,7 @@ fun Register(navController: NavController){
                         Spacer(modifier = Modifier.padding(7.dp))
 
                         Button(
-                            colors = ButtonDefaults.buttonColors(backgroundColor = Color.White),
+                            colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFF177E89)),
                             onClick = {
                                 when{
                                     nameVal.value.isEmpty()->{
@@ -251,13 +246,13 @@ fun Register(navController: NavController){
                             Text(
                                 text = "Sign up",
                                 fontSize = 20.sp,
-                                color = Color.Black
+                                color = Color(0xFFF8FCF8)
                             )
                         }
                         Spacer(modifier = Modifier.padding(10.dp))
                         Text(
                             text = "Login Instead",
-                            fontSize = 10.sp,
+                            fontSize = 15.sp,
                             color = Color.Black,
                             modifier = Modifier.clickable { navController.navigate("login_page") }
 
