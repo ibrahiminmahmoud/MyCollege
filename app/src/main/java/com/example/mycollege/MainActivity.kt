@@ -30,7 +30,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun  NavigatePage() {
     val navController = rememberNavController()
-    NavHost(navController, startDestination = NavigationItem.LoginPage.route) {
+    NavHost(navController, startDestination = NavigationItem.MainScreen.route) {
         composable(NavigationItem.LoginPage.route) {
             LoginPage(navController = navController)
         }

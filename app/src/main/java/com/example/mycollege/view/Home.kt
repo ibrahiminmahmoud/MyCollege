@@ -23,6 +23,8 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -60,7 +62,7 @@ fun TopBar(scope: CoroutineScope, scaffoldState: ScaffoldState){
 
         title = { Text(
                    text = "My College ",
-                   color = Color.Black,
+                   color = Color.White,
                    fontSize = 18.sp,
                    fontWeight = FontWeight.SemiBold)
 
@@ -74,8 +76,8 @@ fun TopBar(scope: CoroutineScope, scaffoldState: ScaffoldState){
                 Icon(Icons.Filled.Menu, "")
             }
         },
-        backgroundColor = Color(0xFFB8CAED),
-        contentColor = Color.Black
+        backgroundColor = Color(0xFF177E89),
+        contentColor = Color.White
     )
 
 }
@@ -162,7 +164,7 @@ fun Drawer(scope: CoroutineScope, scaffoldState: ScaffoldState, navController: N
 }
 @Composable
 fun DrawerItem(  item: NavigationItem, selected: Boolean, onItemClick: (NavigationItem) -> Unit){
-    val background = if(selected) R.color.teal_200 else android.R.color.transparent
+    val background = if(selected) R.color.white else android.R.color.transparent
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
@@ -176,7 +178,7 @@ fun DrawerItem(  item: NavigationItem, selected: Boolean, onItemClick: (Navigati
         Image(
             painter = painterResource(id = item.icon),
             contentDescription = item.title,
-            colorFilter = ColorFilter.tint(Color.Black),
+            colorFilter = ColorFilter.tint(Color(0xFF177E89)),
             contentScale = ContentScale.Fit,
             modifier = Modifier
                 .height(24.dp)
@@ -186,55 +188,64 @@ fun DrawerItem(  item: NavigationItem, selected: Boolean, onItemClick: (Navigati
         Text(
             text = item.title,
             fontSize = 16.sp,
-            color = Color.Black
+            color = Color.Black,
+            fontFamily = cairo
         )
 
     }
 
 }
-
+val cairo = FontFamily(
+    Font(R.font.cairo_semibold)
+)
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun Home(navController: NavController) {
 
-   LazyVerticalGrid(cells = GridCells.Adaptive(150.dp)) {
+   LazyVerticalGrid(cells = GridCells.Adaptive(130.dp)) {
+       /****Start Calender***/
        items(1) {
-           box("تقومي",R.drawable.ic_baseline_calendar_month_24,"calender_page",navController)
+           Box("تقويم",R.drawable.ic_baseline_calendar_month_24,"calender_page",navController)
        }
+       /****End Calender***/
+
+       /****Start Tables***/
        items(1) {
-           box("جداولي",R.drawable.ic_baseline_table_view_24,"Tables_page",navController)
+           Box("جداول",R.drawable.ic_baseline_table_view_24,"Tables_page",navController)
        }
-       /****Lecture***/
+       /****End Tables***/
+
+       /****Start Lecture***/
        items(1) {
-           box("محاضرات",R.drawable.ic_baseline_menu_book_24,"lectures_page",navController)
+           Box("محاضرات",R.drawable.ic_baseline_menu_book_24,"lectures_page",navController)
        }
-       /****endLecture***/
+       /****End Lecture***/
 
        /****Start Post***/
-
        items(1) {
-           box("اعلانات",R.drawable.ic_baseline_local_post_office_24,"post_page",navController)
+           Box("اعلانات",R.drawable.ic_baseline_local_post_office_24,"post_page",navController)
        }
        /****End Post***/
-       /****Start result***/
 
+       /****Start result***/
        items(1) {
-           box("نتيجتي",R.drawable.ic_outline_wysiwyg_24,"result_page",navController)
+           Box("نتيجة",R.drawable.ic_outline_wysiwyg_24,"result_page",navController)
        }
        /****End  result***/
 
        /****Start About***/
-
        items(1) {
-           box("حول",
+           Box("حول",
                 R.drawable.ic_baseline_info_24,"about_page",navController)
        }
        /****End About***/
    }
 
 }
+/*[***Start Fun Box***]*/
+
 @Composable
-fun box(
+fun Box(
     title:String,
     icon : Int,
     route:String,
@@ -244,32 +255,37 @@ fun box(
     Box(
         modifier = Modifier
             .padding(15.dp)
-            .background(color = Color(0xFFededed), shape = RoundedCornerShape(15.dp))
+            .background(color = Color.Transparent, shape = RoundedCornerShape(15.dp))
             .aspectRatio(1f),
         contentAlignment = Alignment.BottomCenter
+
     ) {
         Button(
-
-            onClick = { /*TODO*/ },
+            onClick = { navController.navigate(route) },
             colors = ButtonDefaults.buttonColors(
-                backgroundColor = Color(0xFF03AB2D)
+                backgroundColor = Color(0xFFF8FCF8)
             )
         ) {
             Icon(
                 painter = painterResource(id = icon),
                 contentDescription = "test",
                 modifier = Modifier
-                    .height(180.dp)
-                    .clickable { navController.navigate(route) }
-                    .width(150.dp),
-                tint = Color(0xFF262826)
+                    .height(130.dp)
+                    .width(130.dp),
+                tint = Color(0xFF177E89)
 
             )
         }
         Spacer(modifier = Modifier.padding(15.dp))
 
-        Text(text = title, color = Color.White)
+        Text(text = title,
+            color = Color.Black,
+            fontFamily = cairo,
+            fontWeight = FontWeight.Bold)
+        Spacer(modifier = Modifier.padding(10.dp))
+
 
 
     }
 }
+//*[***End Fun Box ***]*//
