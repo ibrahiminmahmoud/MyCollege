@@ -6,17 +6,13 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -24,7 +20,6 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.unit.toSize
 import androidx.navigation.NavController
 import com.example.mycollege.R
 import com.example.mycollege.ui.theme.Purple500
@@ -139,7 +134,7 @@ fun Register1(navController: NavController){ val context = LocalContext.current
                         Spacer(modifier = Modifier.padding(7.dp))
 
 
-                        /*StudntNumber Filed*/
+                        /*StudentNumber Filed*/
                         TextField(
                             value = studentnumberVal.value,
                             onValueChange = {studentnumberVal.value = it},
@@ -162,7 +157,7 @@ fun Register1(navController: NavController){ val context = LocalContext.current
                             keyboardOptions = KeyboardOptions(
                                 keyboardType = KeyboardType.Number
                             ),
-                            placeholder = { Text(text="PhoneNumber", color= Color.Black) },
+                            placeholder = { Text(text="StudentNumber", color= Color.Black) },
                             //  singleLine = true,
                             modifier = Modifier
                                 .fillMaxWidth(0.8f),
@@ -253,8 +248,7 @@ fun Register1(navController: NavController){ val context = LocalContext.current
                                     }
                                     else -> {
                                         navController.navigate("home_page")
-
-                                        Toast.makeText(context,"Sign in Successfully",Toast.LENGTH_LONG).show()
+                                        Toast.makeText(context,"Sign up Successfully", Toast.LENGTH_LONG).show()
 
                                     }
                                 }
@@ -265,7 +259,7 @@ fun Register1(navController: NavController){ val context = LocalContext.current
                                 .height(50.dp)
                         ) {
                             Text(
-                                text = "Sign up",
+                                text = "انهاء",
                                 fontSize = 20.sp,
                                 color = Color(0xFFF8FCF8)
                             )

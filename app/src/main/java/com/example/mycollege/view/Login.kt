@@ -41,7 +41,7 @@ fun LoginPage(navController:NavController){
     val passwordVisibility = remember {
         mutableStateOf(false)
     }
-    val Email= "abbaytj@gmail.com"
+    val email= "abbaytj@gmail.com"
     val pass="123"
    val icon = if(passwordVisibility.value)
        painterResource(id = R.drawable.ic_baseline_remove_red_eye_24)
@@ -107,6 +107,7 @@ fun LoginPage(navController:NavController){
                                    keyboardType = KeyboardType.Email
                                ),
                               label = { Text(text="Email Address", color= Color.Black)} ,
+                               placeholder = {Text(text="Email Address", color= Color.Gray)},
                                singleLine = true,
                                modifier = Modifier.fillMaxWidth(0.8f),
                                colors = TextFieldDefaults.outlinedTextFieldColors(unfocusedBorderColor = Color.Black,
@@ -121,7 +122,8 @@ fun LoginPage(navController:NavController){
                                keyboardOptions = KeyboardOptions(
                                    keyboardType = KeyboardType.Password
                                ),
-                               label = { Text(text="Password ", color= Color.Black)} ,
+                               label = { Text(text="password ", color= Color.Black)} ,
+                               placeholder = {Text(text="password ", color= Color.Gray)},
                                singleLine = true,
                                modifier = Modifier.fillMaxWidth(0.8f),
                                colors = TextFieldDefaults.outlinedTextFieldColors(unfocusedBorderColor = Color.Black,
@@ -145,7 +147,7 @@ fun LoginPage(navController:NavController){
                            Spacer(modifier = Modifier.padding(10.dp))
 
                            Button(
-                               colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFF177E89)),
+                               colors = ButtonDefaults.buttonColors(Color(0xFF177E89)),
                                onClick =  {
                                    when{
                                        emailVal.value.isEmpty()->{
@@ -155,14 +157,15 @@ fun LoginPage(navController:NavController){
                                            Toast.makeText(context,"Please Enter Password",Toast.LENGTH_LONG).show()
                                        }
                                        else -> {
-                                           if(emailVal.value == Email && passwordVal.value == pass){
+                                           if(emailVal.value == email && passwordVal.value == pass){
                                                navController.navigate("home_page")
                                                Toast.makeText(context,"Sign in Successfully",Toast.LENGTH_LONG).show()
-                                           }else if(emailVal.value != Email){
+                                           }else if(emailVal.value != email){
                                                Toast.makeText(context,"انت غير مسجل في ",Toast.LENGTH_LONG).show()
                                            }else if(passwordVal.value != pass){
                                                Toast.makeText(context,"كلمة السر غير صحيحه ",Toast.LENGTH_LONG).show()
                                            }
+
 
 
                                        }
@@ -170,12 +173,12 @@ fun LoginPage(navController:NavController){
 
                                },
                                modifier = Modifier.fillMaxWidth(0.8f)
-                                   .height(50.dp)
+
                            ) {
                                Text(
                                    text = "Sign In",
                                    fontSize = 20.sp,
-                                   color = Color(0xFFF8FCF8),
+                                   color = Color.White,
                                    modifier = Modifier
                                        .clickable { navController.navigate("home_page") }
 
@@ -185,7 +188,7 @@ fun LoginPage(navController:NavController){
                            Spacer(modifier = Modifier.padding(10.dp))
                            Text(
                                text = "Create an Account",
-                               fontSize = 15.sp,
+                               fontSize = 10.sp,
                                color = Color.Black,
                                modifier = Modifier.clickable { navController.navigate("register_page") }
 
