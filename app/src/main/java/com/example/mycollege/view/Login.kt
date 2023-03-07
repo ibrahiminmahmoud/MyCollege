@@ -41,22 +41,20 @@ fun LoginPage(navController:NavController){
     val passwordVisibility = remember {
         mutableStateOf(false)
     }
-    val Email= "abbaytj@gmail.com"
-    val pass="123"
-   val icon = if(passwordVisibility.value)
+   var icon = if(passwordVisibility.value)
        painterResource(id = R.drawable.ic_baseline_remove_red_eye_24)
     else
         painterResource(id = R.drawable.ic_baseline_visibility_off_24)
 
   Box(
-      modifier = Modifier
+      modifier = androidx.compose.ui.Modifier
           .fillMaxSize()
           .background(color = Color.White) , contentAlignment = Alignment.Center
   ){
          Column(
              horizontalAlignment = Alignment.CenterHorizontally,
              verticalArrangement = Arrangement.Center,
-             modifier = Modifier
+             modifier = androidx.compose.ui.Modifier
                  .fillMaxSize()
 
          )
@@ -69,7 +67,7 @@ fun LoginPage(navController:NavController){
                  Image(modifier = Modifier
                      .width(250.dp)
                      .height(190.dp),
-                     painter =  painterResource(R.drawable.login),
+                     painter =  painterResource(com.example.mycollege.R.drawable.login),
                      contentDescription = "Login",
                      contentScale = ContentScale.Fit
 
@@ -100,13 +98,14 @@ fun LoginPage(navController:NavController){
                            horizontalAlignment = Alignment.CenterHorizontally
                        ) {
       //Email Filed
-                           TextField(
+                           OutlinedTextField(
                                value = emailVal.value,
                                onValueChange = {emailVal.value = it},
                                keyboardOptions = KeyboardOptions(
                                    keyboardType = KeyboardType.Email
                                ),
                               label = { Text(text="Email Address", color= Color.Black)} ,
+                               placeholder = {Text(text="Email Address", color= Color.Gray)},
                                singleLine = true,
                                modifier = Modifier.fillMaxWidth(0.8f),
                                colors = TextFieldDefaults.outlinedTextFieldColors(unfocusedBorderColor = Color.Black,
@@ -115,13 +114,14 @@ fun LoginPage(navController:NavController){
 
                            )
 //password filed
-                           TextField(
+                           OutlinedTextField(
                                value = passwordVal.value,
                                onValueChange = {passwordVal.value = it},
                                keyboardOptions = KeyboardOptions(
                                    keyboardType = KeyboardType.Password
                                ),
-                               label = { Text(text="Password ", color= Color.Black)} ,
+                               label = { Text(text="password ", color= Color.Black)} ,
+                               placeholder = {Text(text="password ", color= Color.Gray)},
                                singleLine = true,
                                modifier = Modifier.fillMaxWidth(0.8f),
                                colors = TextFieldDefaults.outlinedTextFieldColors(unfocusedBorderColor = Color.Black,
@@ -145,7 +145,7 @@ fun LoginPage(navController:NavController){
                            Spacer(modifier = Modifier.padding(10.dp))
 
                            Button(
-                               colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFF177E89)),
+                               colors = ButtonDefaults.buttonColors(backgroundColor = Color.White),
                                onClick =  {
                                    when{
                                        emailVal.value.isEmpty()->{
@@ -155,14 +155,8 @@ fun LoginPage(navController:NavController){
                                            Toast.makeText(context,"Please Enter Password",Toast.LENGTH_LONG).show()
                                        }
                                        else -> {
-                                           if(emailVal.value == Email && passwordVal.value == pass){
-                                               navController.navigate("home_page")
-                                               Toast.makeText(context,"Sign in Successfully",Toast.LENGTH_LONG).show()
-                                           }else if(emailVal.value != Email){
-                                               Toast.makeText(context,"انت غير مسجل في ",Toast.LENGTH_LONG).show()
-                                           }else if(passwordVal.value != pass){
-                                               Toast.makeText(context,"كلمة السر غير صحيحه ",Toast.LENGTH_LONG).show()
-                                           }
+
+                                           Toast.makeText(context,"Sign in Successfully",Toast.LENGTH_LONG).show()
 
 
                                        }
@@ -170,12 +164,13 @@ fun LoginPage(navController:NavController){
 
                                },
                                modifier = Modifier.fillMaxWidth(0.8f)
+                                   .clickable { navController.navigate("home_page") }
                                    .height(50.dp)
                            ) {
                                Text(
                                    text = "Sign In",
                                    fontSize = 20.sp,
-                                   color = Color(0xFFF8FCF8),
+                                   color = Color.Black,
                                    modifier = Modifier
                                        .clickable { navController.navigate("home_page") }
 
@@ -185,7 +180,7 @@ fun LoginPage(navController:NavController){
                            Spacer(modifier = Modifier.padding(10.dp))
                            Text(
                                text = "Create an Account",
-                               fontSize = 15.sp,
+                               fontSize = 10.sp,
                                color = Color.Black,
                                modifier = Modifier.clickable { navController.navigate("register_page") }
 
