@@ -25,15 +25,15 @@ import androidx.navigation.NavController
 import com.example.mycollege.R
 
 @Composable
-fun Register(navController: NavController){
+fun Register(navController: NavController) {
     val context = LocalContext.current
     val scaffoldState = rememberScaffoldState()
     var expanded by remember { mutableStateOf(false) }
     var expanded1 by remember { mutableStateOf(false) }
-    val suggestions = listOf("بكلاريوس","دبلوم")
-    val suggestions1 = listOf(  "علوم حاسوب", "تقانة معلومات","حوسبة احصائية","شبكات")
-    var selectedText by remember { mutableStateOf("") }
-    var selectedText1 by remember { mutableStateOf("") }
+    val suggestions = listOf("بكلاريوس", "دبلوم")
+    val suggestions1 = listOf("علوم حاسوب", "تقانة معلومات", "حوسبة احصائية", "شبكات")
+    val selectedText = remember { mutableStateOf("") }
+    val selectedText1 =remember { mutableStateOf("") }
 
     var textfieldSize by remember {
         mutableStateOf(androidx.compose.ui.geometry.Size.Zero)
@@ -56,9 +56,9 @@ fun Register(navController: NavController){
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Color.White) ,
+            .background(color = Color.White),
         contentAlignment = Alignment.Center
-    ){
+    ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
@@ -72,12 +72,13 @@ fun Register(navController: NavController){
 
 
                 contentAlignment = Alignment.Center
-            ){
+            ) {
 
-                Image(modifier = Modifier
-                    .width(220.dp)
-                    .height(190.dp),
-                    painter =  painterResource(R.drawable.register),
+                Image(
+                    modifier = Modifier
+                        .width(220.dp)
+                        .height(190.dp),
+                    painter = painterResource(R.drawable.register),
                     contentDescription = "Login",
                     contentScale = ContentScale.Fit
 
@@ -89,7 +90,8 @@ fun Register(navController: NavController){
                 modifier = Modifier
                     .fillMaxWidth(),
 
-                scaffoldState = scaffoldState) {
+                scaffoldState = scaffoldState
+            ) {
 
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -110,9 +112,9 @@ fun Register(navController: NavController){
                     )
                     Column(Modifier.padding(20.dp)) {
                         TextField(
-                            value = selectedText,
+                            value = selectedText.value,
                             readOnly = true,
-                            onValueChange = { selectedText = it },
+                            onValueChange = { selectedText.value = it },
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable { expanded = !expanded }
@@ -120,7 +122,7 @@ fun Register(navController: NavController){
                                     //This value is used to assign to the DropDown the same width
                                     textfieldSize = coordinates.size.toSize()
                                 },
-                            label = { Text("اختر التخصص ") },
+                            label = { Text("اختر المساق الاكاديمي ") },
                             trailingIcon = {
                                 Icon(icon, "contentDescription",
                                     Modifier.clickable { expanded = !expanded })
@@ -135,7 +137,7 @@ fun Register(navController: NavController){
                             suggestions.forEach { label ->
                                 DropdownMenuItem(
                                     onClick = {
-                                        selectedText = label
+                                        selectedText.value = label
                                         expanded = false
                                     }) {
                                     Text(text = label)
@@ -144,13 +146,13 @@ fun Register(navController: NavController){
                             }
                         }
                     }
-                       Spacer(modifier = Modifier.padding(5.dp))
+                    Spacer(modifier = Modifier.padding(5.dp))
 
                     Column(Modifier.padding(20.dp)) {
                         TextField(
-                            value = selectedText1,
+                            value = selectedText1.value,
                             readOnly = true,
-                            onValueChange = { selectedText1 = it },
+                            onValueChange = { selectedText1.value = it },
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable { expanded1 = !expanded1 }
@@ -173,7 +175,7 @@ fun Register(navController: NavController){
                             suggestions1.forEach { label ->
                                 DropdownMenuItem(
                                     onClick = {
-                                        selectedText1 = label
+                                        selectedText1.value = label
                                         expanded1 = false
                                     }) {
                                     Text(text = label)
@@ -182,41 +184,51 @@ fun Register(navController: NavController){
                             }
                         }
                     }
-                        Spacer(modifier = Modifier.padding(7.dp))
+                    Spacer(modifier = Modifier.padding(7.dp))
 
-                        Button(
-                            colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFF177E89)),
-                            onClick = {
-                                when{
-                                    selectedText.isEmpty()->{
-                                        Toast.makeText(context,"اخترالمساق",Toast.LENGTH_LONG).show()
-                                    }
-                                    selectedText1.isEmpty()->{
-                                        Toast.makeText(context,"اختار التخصص",Toast.LENGTH_LONG).show()
-                                    }
-                                    else -> {
-                                        navController.navigate("register1_page")
-
-
-                                    }
+                    Button(
+                        colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFF177E89)),
+                        onClick = {
+                            when {
+                                selectedText.value.isEmpty() -> {
+                                    Toast.makeText(context, "اخترالمساق", Toast.LENGTH_LONG).show()
                                 }
+                                selectedText1.value.isEmpty() -> {
+                                    Toast.makeText(context, "اختار التخصص", Toast.LENGTH_LONG)
+                                        .show()
+                                }
+                                else -> {
+                                    if (selectedText.value== "بكلاريوس" && selectedText1.value == "شبكات"
+                                    ) {
+                                        Toast.makeText(
+                                            context,
+                                            "تخصص شبكات غير متاح في بكلاريوس",
+                                            Toast.LENGTH_LONG
+                                        ).show()
 
-                            },
-                            modifier = Modifier
-                                .fillMaxWidth(0.8f)
-                                .height(50.dp)
-                        ) {
-                            Text(
-                                text = "التالي",
-                                fontSize = 20.sp,
-                                color = Color.White
-                            )
-                        }
-                        Spacer(modifier = Modifier.padding(10.dp))
+                                    } else {
+                                        navController.navigate("register1_page")
+                                    }
 
+                                }
+                            }
 
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth(0.8f)
+                            .height(50.dp)
+                    ) {
+                        Text(
+                            text = "التالي",
+                            fontSize = 20.sp,
+                            color = Color.White
+                        )
                     }
+                    Spacer(modifier = Modifier.padding(10.dp))
+
+
                 }
             }
         }
     }
+}

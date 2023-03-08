@@ -235,9 +235,13 @@ fun Register1(navController: NavController){ val context = LocalContext.current
                             onClick = {
                                 when{
                                     nameVal.value.isEmpty()->{
-                                        Toast.makeText(context,"Please Enter Name", Toast.LENGTH_LONG).show()
+                                        Toast.makeText(
+                                            context,
+                                            "Please Enter Name",
+                                            Toast.LENGTH_LONG
+                                        ).show()
                                     }
-                                    studentnumberVal.value.isEmpty()->{
+                                    studentnumberVal.value.isEmpty()-> {
                                         Toast.makeText(context,"Please Enter Student Number", Toast.LENGTH_LONG).show()
                                     }
                                     passwordVal.value.isEmpty()->{
@@ -247,8 +251,13 @@ fun Register1(navController: NavController){ val context = LocalContext.current
                                         Toast.makeText(context,"Please Enter ConfirmPassword", Toast.LENGTH_LONG).show()
                                     }
                                     else -> {
-                                        navController.navigate("home_page")
-                                        Toast.makeText(context,"Sign up Successfully", Toast.LENGTH_LONG).show()
+                                        if(studentnumberVal.value.matches(Regex("([0-9]){2}([-])?(B)?(T)([0-9]){3}$"))){
+                                            navController.navigate("home_page")
+                                            Toast.makeText(context,"Sign up Successfully", Toast.LENGTH_LONG).show()
+                                        }else{
+                                            Toast.makeText(context,"انت بتقراء دبلوم يا اصلي", Toast.LENGTH_LONG).show()
+                                        }
+
 
                                     }
                                 }
