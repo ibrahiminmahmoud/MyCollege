@@ -218,7 +218,7 @@ val cairo = FontFamily(
 @Composable
 fun Home(navController: NavController) {
 
-   LazyVerticalGrid(cells = GridCells.Adaptive(130.dp)) {
+   LazyVerticalGrid(cells = GridCells.Adaptive(180.dp)) {
        /****Start Calender***/
        items(1) {
            Box("تقويم",R.drawable.schedule,"calender_page",navController)
@@ -271,6 +271,7 @@ fun Box(
     Box(
         modifier = Modifier
             .padding(15.dp)
+            .height(150.dp)
             .background(color = Color.Transparent, shape = RoundedCornerShape(15.dp))
             .aspectRatio(1f),
         contentAlignment = Alignment.BottomCenter
@@ -314,11 +315,13 @@ fun Box(
 
 
                 ){}
-                Spacer(modifier = Modifier.padding(6.dp))
+                Spacer(modifier = Modifier.padding(2.dp))
                 Text(text = title,
                     color = Color.Black,
                     fontFamily = cairo,
                     fontWeight = FontWeight.Bold)
+                Spacer(modifier = Modifier.padding(2.dp))
+
             }
 
         }
