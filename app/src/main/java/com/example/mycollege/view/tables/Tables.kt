@@ -1,6 +1,6 @@
 @file:Suppress("OPT_IN_IS_NOT_ENABLED")
 
-package com.example.mycollege.view
+package com.example.mycollege.view.tables
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*
@@ -12,6 +12,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.mycollege.R
+import com.example.mycollege.view.Drawer
+import com.example.mycollege.view.TopBar
 
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -22,7 +24,7 @@ fun Tables(navController: NavController) {
 
     Scaffold(
         scaffoldState = scaffoldState,
-        topBar = { TopBar(scope = scope, scaffoldState = scaffoldState) },
+        topBar = { TopBar(scope = scope, scaffoldState = scaffoldState,"جداول") },
         drawerContent = {
             Drawer(scope = scope, scaffoldState = scaffoldState, navController = navController)
         },
@@ -30,25 +32,29 @@ fun Tables(navController: NavController) {
             LazyVerticalGrid(cells = GridCells.Adaptive(150.dp), content = {
 
             items(1) {
-                Box("جدول امتحانات",
-                    R.drawable.ic_outline_quiz_24,
-                    "about_page",
+                com.example.mycollege.view.Box(
+                    "امتحانات",
+                    R.drawable.score,
+                    "Tablesded_page",
                     navController
                 )
 
             }
             items(1) {
-                Box("جدول المحاضرات",
-                    R.drawable.ic_baseline_table_view_24,
-                    "about_page",
-                    navController)
-
+                com.example.mycollege.view.Box(
+                    "العملي",
+                    R.drawable.code,
+                    "Tablesded_page",
+                    navController
+                )
             }
             items(1) {
-                Box("جدول العملي",
-                    R.drawable.ic_baseline_code_24,
-                    "about_page",
-                    navController)
+                com.example.mycollege.view.Box(
+                    "المحاضرات",
+                    R.drawable.lecture,
+                    "Tablesded_page",
+                    navController
+                )
             }
 
         })

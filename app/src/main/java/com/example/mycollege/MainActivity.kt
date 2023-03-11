@@ -1,16 +1,25 @@
 package com.example.mycollege
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.mycollege.ui.theme.MyCollegeTheme
 import com.example.mycollege.view.*
+import com.example.mycollege.view.lectuers.Lectures
+import com.example.mycollege.view.post.Poster
+import com.example.mycollege.view.post.post1
+import com.example.mycollege.view.post.post2
+import com.example.mycollege.view.tables.Tables
+import com.example.mycollege.view.tables.Tablesded
 
 class MainActivity : ComponentActivity() {
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,12 +36,16 @@ class MainActivity : ComponentActivity() {
 
 
 
+@RequiresApi(Build.VERSION_CODES.N)
 @Composable
 fun  NavigatePage() {
     val navController = rememberNavController()
-    NavHost(navController, startDestination = NavigationItem.Register.route) {
+    NavHost(navController, startDestination = NavigationItem.Lectures.route) {
         composable(NavigationItem.LoginPage.route) {
             LoginPage(navController = navController)
+        }
+        composable(NavigationItem.Tablesded.route) {
+            Tablesded(navController = navController)
         }
         composable(NavigationItem.Register.route) {
             Register(navController = navController)
@@ -46,7 +59,13 @@ fun  NavigatePage() {
         }
 
         composable(NavigationItem.Poster.route) {
-            Poster()
+            Poster(navController = navController)
+        }
+        composable(NavigationItem.post1.route) {
+            post1(navController = navController)
+        }
+        composable(NavigationItem.post2.route) {
+            post2(navController = navController)
         }
         composable(NavigationItem.Calender.route) {
             calender(navController = navController)
@@ -68,20 +87,3 @@ fun  NavigatePage() {
 
 }
 
-
-//@Composable
-//fun NavigatePage() {
-//
-//    val navController = rememberNavController()
-//
-//    NavHost(
-//        navController = navController,
-//        startDestination = "login_page",
-//        builder ={
-//            composable("login_page", content = { LoginPage(navController = navController)})
-//            composable("register_page", content = { Register(navController = navController)})
-//            composable("home_page", content = { MainScreen(navController = navController) })
-//            composable("Tables_page", content = { Tables(navController = navController) })
-//    }
-//    )
-//}

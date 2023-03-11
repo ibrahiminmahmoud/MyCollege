@@ -108,8 +108,10 @@ fun Register(navController: NavController) {
                         text = "انشاء حساب",
                         fontSize = 25.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color.Black
-                    )
+                        color = Color.Black,
+                        fontFamily = cairo,
+
+                        )
                     Column(Modifier.padding(20.dp)) {
                         TextField(
                             value = selectedText.value,
@@ -122,7 +124,10 @@ fun Register(navController: NavController) {
                                     //This value is used to assign to the DropDown the same width
                                     textfieldSize = coordinates.size.toSize()
                                 },
-                            label = { Text("اختر المساق الاكاديمي ") },
+                            label = { Text("اختر المساق الاكاديمي ",
+                                fontFamily = cairo,
+
+                                ) },
                             trailingIcon = {
                                 Icon(icon, "contentDescription",
                                     Modifier.clickable { expanded = !expanded })
@@ -140,7 +145,10 @@ fun Register(navController: NavController) {
                                         selectedText.value = label
                                         expanded = false
                                     }) {
-                                    Text(text = label)
+                                    Text(text = label,
+                                        fontFamily = cairo,
+
+                                        )
 
                                 }
                             }
@@ -160,7 +168,9 @@ fun Register(navController: NavController) {
                                     //This value is used to assign to the DropDown the same width
                                     textfieldSize1 = coordinates.size.toSize()
                                 },
-                            label = { Text("اختر التخصص ") },
+                            label = { Text(text="اختر التخصص ",
+                                fontFamily = cairo,
+                            ) },
                             trailingIcon = {
                                 Icon(icon1, "contentDescription",
                                     Modifier.clickable { expanded1 = !expanded1 })
@@ -178,7 +188,10 @@ fun Register(navController: NavController) {
                                         selectedText1.value = label
                                         expanded1 = false
                                     }) {
-                                    Text(text = label)
+                                    Text(
+                                        text = label,
+                                        fontFamily = cairo,
+                                    )
 
                                 }
                             }
@@ -221,11 +234,12 @@ fun Register(navController: NavController) {
                         Text(
                             text = "التالي",
                             fontSize = 20.sp,
-                            color = Color.White
-                        )
+                            color = Color.White,
+                            fontFamily = cairo,
+
+                            )
                     }
                     Spacer(modifier = Modifier.padding(10.dp))
-
 
                 }
             }

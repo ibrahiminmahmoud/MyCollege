@@ -1,9 +1,7 @@
 package com.example.mycollege.view
 
 import android.widget.Toast
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
@@ -41,7 +39,7 @@ fun LoginPage(navController:NavController){
     val passwordVisibility = remember {
         mutableStateOf(false)
     }
-    val email= "abbaytj@gmail.com"
+    val email= "110108327"
     val pass="123"
    val icon = if(passwordVisibility.value)
        painterResource(id = R.drawable.ic_baseline_remove_red_eye_24)
@@ -70,10 +68,11 @@ fun LoginPage(navController:NavController){
                      .width(250.dp)
                      .height(190.dp),
                      painter =  painterResource(R.drawable.login),
-                     contentDescription = "Login",
-                     contentScale = ContentScale.Fit
+                     contentDescription = "تسجيل الدخول",
+                     contentScale = ContentScale.Fit,
 
-                 )
+
+                     )
              }
                //Spacer(modifier = Modifier.padding(5.dp))
 
@@ -88,15 +87,18 @@ fun LoginPage(navController:NavController){
 
                    ) {
                        Text(
-                           text = "Sign In",
-                           fontSize = 30.sp,
+                           text = "تسجيل الدخول",
+                           fontSize = 20.sp,
                            fontWeight = FontWeight.Bold,
-                           color = Color.Black
+                           color = Color.Black,
+                           fontFamily = cairo,
                        )
 
                       Spacer(modifier = Modifier.padding(10.dp))
 
                        Column(
+                           modifier = Modifier
+                               .verticalScroll(rememberScrollState()),
                            horizontalAlignment = Alignment.CenterHorizontally
                        ) {
       //Email Filed
@@ -106,8 +108,11 @@ fun LoginPage(navController:NavController){
                                keyboardOptions = KeyboardOptions(
                                    keyboardType = KeyboardType.Email
                                ),
-                              label = { Text(text="Email Address", color= Color.Black)} ,
-                               placeholder = {Text(text="Email Address", color= Color.Gray)},
+                              label = { Text(
+                                  text = "رقم الجلوس",
+                                  color = Color.Black,
+                                  fontFamily = cairo,
+                              )} ,
                                singleLine = true,
                                modifier = Modifier.fillMaxWidth(0.8f),
                                colors = TextFieldDefaults.outlinedTextFieldColors(unfocusedBorderColor = Color.Black,
@@ -122,8 +127,11 @@ fun LoginPage(navController:NavController){
                                keyboardOptions = KeyboardOptions(
                                    keyboardType = KeyboardType.Password
                                ),
-                               label = { Text(text="password ", color= Color.Black)} ,
-                               placeholder = {Text(text="password ", color= Color.Gray)},
+                               label = { Text(
+                                   text = "كلمة السر",
+                                   color = Color.Black,
+                                   fontFamily = cairo,
+                               )} ,
                                singleLine = true,
                                modifier = Modifier.fillMaxWidth(0.8f),
                                colors = TextFieldDefaults.outlinedTextFieldColors(unfocusedBorderColor = Color.Black,
@@ -151,10 +159,10 @@ fun LoginPage(navController:NavController){
                                onClick =  {
                                    when{
                                        emailVal.value.isEmpty()->{
-                                           Toast.makeText(context,"Please Enter Email",Toast.LENGTH_LONG).show()
+                                           Toast.makeText(context,"رجاء ادخل رقم الجلوس",Toast.LENGTH_LONG).show()
                                        }
                                        passwordVal.value.isEmpty()->{
-                                           Toast.makeText(context,"Please Enter Password",Toast.LENGTH_LONG).show()
+                                           Toast.makeText(context,"ادخل كلمة السر",Toast.LENGTH_LONG).show()
                                        }
                                        else -> {
                                            if(emailVal.value == email && passwordVal.value == pass){
@@ -176,9 +184,10 @@ fun LoginPage(navController:NavController){
 
                            ) {
                                Text(
-                                   text = "Sign In",
+                                   text = "تسجيل دخول",
                                    fontSize = 20.sp,
                                    color = Color.White,
+                                   fontFamily = cairo,
                                    modifier = Modifier
                                        .clickable { navController.navigate("home_page") }
 
@@ -187,9 +196,10 @@ fun LoginPage(navController:NavController){
                            }
                            Spacer(modifier = Modifier.padding(10.dp))
                            Text(
-                               text = "Create an Account",
-                               fontSize = 10.sp,
+                               text = "انشاء حساب",
+                               fontSize = 12.sp,
                                color = Color.Black,
+                               fontFamily = cairo,
                                modifier = Modifier.clickable { navController.navigate("register_page") }
 
                            )

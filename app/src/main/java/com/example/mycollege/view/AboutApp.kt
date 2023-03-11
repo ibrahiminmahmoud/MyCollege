@@ -2,122 +2,57 @@
 
 package com.example.mycollege.view
 
-import androidx.compose.foundation.ExperimentalFoundationApi
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.mycollege.R
+import java.util.*
 
-@OptIn(ExperimentalFoundationApi::class)
-
+@RequiresApi(Build.VERSION_CODES.N)
 @Composable
 fun AboutApp(navController: NavController) {
     val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
     val scope = rememberCoroutineScope()
     Scaffold(
         scaffoldState = scaffoldState,
-        topBar = { TopBar(scope = scope, scaffoldState = scaffoldState) },
+        topBar = { TopBar(scope = scope, scaffoldState = scaffoldState,"حول التطبيق") },
         drawerContent = {
             Drawer(scope = scope, scaffoldState = scaffoldState, navController = navController)
         },
-        content = {    LazyVerticalGrid(cells = GridCells.Adaptive(150.dp), content = {
+        content = { LazyColumn(
+            verticalArrangement = Arrangement.spacedBy(4.dp),
 
+            contentPadding = PaddingValues(horizontal = 13.dp, vertical = 8.dp)){
             items(1) {
-                Box(
+                Row(
                     modifier = Modifier
-                        .padding(15.dp)
-                        .background(color = Color(0xFFededed), shape = RoundedCornerShape(15.dp))
-                        .aspectRatio(1f),
+                        .background(Color.LightGray)
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(14.dp)
 
 
-                    contentAlignment = Alignment.BottomCenter
-                ) {
-                    IconButton(
-                        onClick = { /*TODO*/ }
-                    ) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_baseline_insert_invitation_24),
-                            contentDescription = "test",
-                            modifier = Modifier
-                                .height(180.dp)
-                                .width(150.dp),
-                            tint =  Color(0xFF806D7E)
-                        )
-                    }
-
-                    Text(text = "جدول امتحانات ")
-
-
-                }
-            }
-            items(1) {
-                Box(
-                    modifier = Modifier
-                        .padding(15.dp)
-                        .background(color = Color(0xFFededed), shape = RoundedCornerShape(15.dp))
-                        .aspectRatio(1f),
-                    contentAlignment = Alignment.BottomCenter
-                ) {
-                    IconButton(
-                        onClick = { /*TODO*/ }
-                    ) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_baseline_insert_invitation_24),
-                            contentDescription = "test",
-                            modifier = Modifier
-                                .height(180.dp)
-                                .width(150.dp),
-                            tint =  Color(0xFF806D7E)
-                        )
-                    }
-                    Spacer(modifier = Modifier.padding(15.dp))
-
-                    Text(text = "جدول المحاضرات")
-
-
-                }
-            }
-            items(1) {
-                Box(
-                    modifier = Modifier
-                        .padding(15.dp)
-                        .background(color = Color(0xFFededed), shape = RoundedCornerShape(15.dp))
-                        .aspectRatio(1f),
-                    contentAlignment = Alignment.BottomCenter
-                ) {
-                    IconButton(
-                        onClick = { /*TODO*/ }
-                    ) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_baseline_insert_invitation_24),
-                            contentDescription = "test",
-                            modifier = Modifier
-                                .height(180.dp)
-                                .width(150.dp),
-                            tint =  Color(0xFF806D7E)
-                        )
-                    }
-                    Spacer(modifier = Modifier.padding(15.dp))
-
-                    Text(text = "جدول العملي")
-
-
+                ){
+                    Text(text = "هذا التطبيق يعمل على توفير كل جديد في الكلية للطلاب من محاضرات وتقويم واعلانات ونتائج الامتحانات \nوالمتحوى الدراسي",
+                        color = Color.Black,
+                        fontFamily = cairo,
+                        fontWeight = FontWeight.Bold)
                 }
             }
 
-        })
-        }
+
+        } }
 
     )
 }

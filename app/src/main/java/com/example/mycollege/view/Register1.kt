@@ -101,11 +101,13 @@ fun Register1(navController: NavController){ val context = LocalContext.current
 
                 ) {
                     Text(
-                        text = "Sign up",
+                        text = "انشاء حساب",
                         fontSize = 25.sp,
                         fontWeight = FontWeight.Bold,
-                        color = Color.Black
-                    )
+                        color = Color.Black,
+                        fontFamily = cairo,
+
+                        )
 
                     Spacer(modifier = Modifier.padding(10.dp))
 
@@ -121,7 +123,9 @@ fun Register1(navController: NavController){ val context = LocalContext.current
                             keyboardOptions = KeyboardOptions(
                                 keyboardType = KeyboardType.Email
                             ),
-                            placeholder = { Text(text="Name", color= Color.Black) },
+                            placeholder = { Text(text="الاسم كامل", color= Color.Black,
+                                fontFamily = cairo,
+                            ) },
                             singleLine = true,
                             modifier = Modifier
                                 .fillMaxWidth(0.8f),
@@ -141,7 +145,9 @@ fun Register1(navController: NavController){ val context = LocalContext.current
                             keyboardOptions = KeyboardOptions(
                                 keyboardType = KeyboardType.Number
                             ),
-                            placeholder = { Text(text="StudentNumber", color= Color.Black) },
+                            placeholder = { Text(text="رقم الجلوس", color= Color.Black,
+                                fontFamily = cairo,
+                            ) },
                             //  singleLine = true,
                             modifier = Modifier
                                 .fillMaxWidth(0.8f),
@@ -157,7 +163,9 @@ fun Register1(navController: NavController){ val context = LocalContext.current
                             keyboardOptions = KeyboardOptions(
                                 keyboardType = KeyboardType.Number
                             ),
-                            placeholder = { Text(text="StudentNumber", color= Color.Black) },
+                            placeholder = { Text(text="رقم الهاتف", color= Color.Black,
+                                fontFamily = cairo,
+                            ) },
                             //  singleLine = true,
                             modifier = Modifier
                                 .fillMaxWidth(0.8f),
@@ -173,7 +181,9 @@ fun Register1(navController: NavController){ val context = LocalContext.current
                             keyboardOptions = KeyboardOptions(
                                 keyboardType = KeyboardType.Password
                             ),
-                            placeholder = { Text(text="password ", color= Color.Black) },
+                            placeholder = { Text(text="كلمة السر ", color= Color.Black,
+                                fontFamily = cairo,
+                            ) },
                             singleLine = true,
                             modifier = Modifier
                                 .fillMaxWidth(0.8f),
@@ -205,7 +215,10 @@ fun Register1(navController: NavController){ val context = LocalContext.current
                             keyboardOptions = KeyboardOptions(
                                 keyboardType = KeyboardType.Password
                             ),
-                            placeholder = { Text(text="ConfirmPassword ", color= Color.Black) },
+                            placeholder = { Text(text="تأكيد كلمة السر ", color= Color.Black,
+                                fontFamily = cairo,
+
+                                ) },
                             singleLine = true,
                             modifier = Modifier
                                 .fillMaxWidth(0.8f),
