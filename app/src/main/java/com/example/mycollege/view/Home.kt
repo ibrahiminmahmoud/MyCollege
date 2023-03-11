@@ -18,6 +18,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
@@ -32,6 +33,9 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.mycollege.R
+import com.example.mycollege.ui.theme.Purple200
+import com.example.mycollege.ui.theme.Purple500
+import com.example.mycollege.ui.theme.Purple700
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -43,7 +47,7 @@ fun MainScreen(navController: NavController){
 
     Scaffold(
         scaffoldState = scaffoldState,
-        topBar = { TopBar(scope = scope, scaffoldState = scaffoldState) },
+        topBar = { TopBar(scope = scope, scaffoldState = scaffoldState,"كلية دراسات الحاسوب واﻹحصاء") },
         drawerContent = {
             Drawer(scope = scope, scaffoldState = scaffoldState, navController = navController)
         }
@@ -56,27 +60,38 @@ fun MainScreen(navController: NavController){
 }
 
 @Composable
-fun TopBar(scope: CoroutineScope, scaffoldState: ScaffoldState){
+fun TopBar(scope: CoroutineScope, scaffoldState: ScaffoldState , name:String){
 
     TopAppBar(
 
-        title = { Text(
-                   text = "My College ",
-                   color = Color.White,
-                   fontSize = 18.sp,
-                   fontWeight = FontWeight.SemiBold)
+        title = {
+            Text(
+                text = name,
+                color = Color(0xFF1E2019),
+                fontSize = 18.sp,
+                fontWeight = FontWeight.SemiBold,
+                textAlign = TextAlign.Justify,
+                fontFamily = cairo
 
-                 },
+            )
+
+        },
         navigationIcon = {
             IconButton(onClick = {
                 scope.launch {
                     scaffoldState.drawerState.open()
                 }
             }) {
-                Icon(Icons.Filled.Menu, "")
+                Icon(
+
+                    Icons.Filled.Menu, "menu",
+                   tint =  Color(0xff1E2019)
+
+
+                )
             }
         },
-        backgroundColor = Color(0xFF177E89),
+        backgroundColor  = Color(0xffF7F7FF),
         contentColor = Color.White
     )
 
@@ -104,7 +119,7 @@ fun Drawer(scope: CoroutineScope, scaffoldState: ScaffoldState, navController: N
             modifier = Modifier
                 .fillMaxWidth()
                 .height(130.dp)
-                .background(Color(0xFF177E89)),
+                .background(Color(0xffF7F7FF)),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
         ){
@@ -179,7 +194,7 @@ fun DrawerItem(  item: NavigationItem, selected: Boolean, onItemClick: (Navigati
         Image(
             painter = painterResource(id = item.icon),
             contentDescription = item.title,
-            colorFilter = ColorFilter.tint(Color(0xFF177E89)),
+            colorFilter = ColorFilter.tint(Color(0xFF04052E)),
             contentScale = ContentScale.Fit,
             modifier = Modifier
                 .height(24.dp)
@@ -206,38 +221,38 @@ fun Home(navController: NavController) {
    LazyVerticalGrid(cells = GridCells.Adaptive(130.dp)) {
        /****Start Calender***/
        items(1) {
-           Box("تقويم",R.drawable.ic_baseline_calendar_month_24,"calender_page",navController)
+           Box("تقويم",R.drawable.schedule,"calender_page",navController)
        }
        /****End Calender***/
 
        /****Start Tables***/
        items(1) {
-           Box("جداول",R.drawable.ic_baseline_table_view_24,"Tables_page",navController)
+           Box("جداول",R.drawable.grid,"Tables_page",navController)
        }
        /****End Tables***/
 
        /****Start Lecture***/
        items(1) {
-           Box("محاضرات",R.drawable.ic_baseline_menu_book_24,"lectures_page",navController)
+           Box("محاضرات",R.drawable.openbook,"lectures_page",navController)
        }
        /****End Lecture***/
 
        /****Start Post***/
        items(1) {
-           Box("اعلانات",R.drawable.ic_baseline_local_post_office_24,"post_page",navController)
+           Box("اعلانات",R.drawable.advertising,"post_page",navController)
        }
        /****End Post***/
 
        /****Start result***/
        items(1) {
-           Box("نتيجة",R.drawable.ic_outline_wysiwyg_24,"result_page",navController)
+           Box("نتيجة",R.drawable.notepad,"result_page",navController)
        }
        /****End  result***/
 
        /****Start About***/
        items(1) {
            Box("حول",
-                R.drawable.ic_baseline_info_24,"about_page",navController)
+                R.drawable.info,"about_page",navController)
        }
        /****End About***/
    }
@@ -264,26 +279,52 @@ fun Box(
         Button(
             onClick = { navController.navigate(route) },
             colors = ButtonDefaults.buttonColors(
-                backgroundColor = Color(0xFFF8FCF8)
-            )
+                backgroundColor = Color(0xFFF7F7FF),
+
+            ),
+            modifier = Modifier
+                .height(150.dp)
+                .width(130.dp)
+               // .padding(10.dp)
+
+
         ) {
-            Icon(
-                painter = painterResource(id = icon),
-                contentDescription = "test",
-                modifier = Modifier
-                    .height(130.dp)
-                    .width(130.dp),
-                tint = Color(0xFF177E89)
+            Column(modifier = Modifier
+                .padding(start = 0.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
 
-            )
+            ){
+                Image(
+                    painter = painterResource(id = icon),
+                    contentDescription = "test",
+                    modifier = Modifier
+                        .height(80.dp)
+                        .width(80.dp),
+
+
+                    )
+                Spacer(modifier = Modifier.padding(8.dp))
+                Row(
+                    modifier = Modifier
+                        .background(Color.LightGray)
+                        .height(1.dp)
+                        .width(120.dp)
+                        .background(Color(0xFF177E89)),
+
+
+
+                ){}
+                Spacer(modifier = Modifier.padding(6.dp))
+                Text(text = title,
+                    color = Color.Black,
+                    fontFamily = cairo,
+                    fontWeight = FontWeight.Bold)
+            }
+
         }
-        Spacer(modifier = Modifier.padding(15.dp))
 
-        Text(text = title,
-            color = Color.Black,
-            fontFamily = cairo,
-            fontWeight = FontWeight.Bold)
-        Spacer(modifier = Modifier.padding(10.dp))
+
+
 
 
 
