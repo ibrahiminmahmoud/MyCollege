@@ -44,7 +44,7 @@ fun Lectures(navController: NavController) {
 
                     items(suggestions1.size) {
                         Boxlec(
-                            "lable",
+                            "lecture",
                             R.drawable.openbook,
                             "calender_page",
                             navController
