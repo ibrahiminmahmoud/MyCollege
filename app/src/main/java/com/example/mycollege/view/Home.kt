@@ -229,7 +229,7 @@ fun Home(navController: NavController) {
 
        /****Start Lecture***/
        items(1) {
-           Box("محاضرات",R.drawable.openbook,"lectures_page",navController)
+               Box("محاضرات",R.drawable.openbook,"lectures_page",navController)
        }
        /****End Lecture***/
 

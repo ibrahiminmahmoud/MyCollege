@@ -4,7 +4,9 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -16,6 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.mycollege.R
 import com.example.mycollege.view.Drawer
 import com.example.mycollege.view.TopBar
 import com.example.mycollege.view.cairo as cairo1
@@ -37,14 +40,19 @@ fun Lectures(navController: NavController) {
             Drawer(scope = scope, scaffoldState = scaffoldState, navController = navController)
         },
         content = {
-            LazyColumn(
-                verticalArrangement = Arrangement.spacedBy(4.dp),
+                LazyVerticalGrid(cells = GridCells.Adaptive(130.dp)){
 
-                contentPadding = PaddingValues(horizontal = 13.dp, vertical = 8.dp)){
+                items(suggestions4.size) { i->
 
-                items(1) {
+                        Boxlec(
+                            title = suggestions4[i],
+                            icon = R.drawable.openbook,
+                            route = "listoflec_page",
+                            navController = navController
+                        )
+                    }
 
-                }
+
 
 
             }
@@ -60,7 +68,7 @@ fun Lectures(navController: NavController) {
 
 @Composable
 fun Boxlec(
-    title:String,
+   title:String,
     icon : Int,
     route:String,
     navController: NavController,
@@ -68,7 +76,7 @@ fun Boxlec(
 
     ) {
 
-    val suggestions1 = listOf("الامن السيبراني", "تشفير ", "تنقيب بيانات", "شبكات","قواعد بيانات", "نمذجةومحاكاة")
+    val suggestions4 = listOf("الامن السيبراني", "تشفير ", "تنقيب بيانات", "شبكات","قواعد بيانات", "نمذجةومحاكاة")
     Box(
         modifier = Modifier
             .padding(15.dp)
@@ -116,12 +124,13 @@ fun Boxlec(
 
                     ){}
                 Spacer(modifier = Modifier.padding(6.dp))
-                    Text(
+                Text(
                         text = title,
                         color = Color.Black,
                         fontFamily = cairo1,
                         fontWeight = FontWeight.Bold
                     )
+
 
             }
 
