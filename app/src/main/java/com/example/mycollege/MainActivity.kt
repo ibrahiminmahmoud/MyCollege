@@ -11,7 +11,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.mycollege.ui.theme.MyCollegeTheme
 import com.example.mycollege.view.*
+import com.example.mycollege.view.lectuers.ComposePDFViewer
 import com.example.mycollege.view.lectuers.Lectures
+import com.example.mycollege.view.lectuers.listoflec
 import com.example.mycollege.view.post.Poster
 import com.example.mycollege.view.post.post1
 import com.example.mycollege.view.post.post2
@@ -56,6 +58,13 @@ fun  NavigatePage() {
 
         composable(NavigationItem.MainScreen.route) {
             MainScreen(navController = navController)
+        }
+        composable(NavigationItem.ComposePDFViewer.route) {
+            ComposePDFViewer(navController = navController)
+        }
+
+        composable(NavigationItem.listoflec.route) {
+            listoflec(navController = navController)
         }
 
         composable(NavigationItem.Poster.route) {

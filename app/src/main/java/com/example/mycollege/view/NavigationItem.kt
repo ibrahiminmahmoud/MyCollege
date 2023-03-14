@@ -17,4 +17,6 @@ sealed class NavigationItem(var route: String, var icon: Int, var title: String)
     object Lectures : NavigationItem("lectures_page", R.drawable.ic_baseline_menu_book_24, "محاضرات")
     object Result : NavigationItem("result_page", R.drawable.ic_outline_wysiwyg_24, "النتيجة")
     object AboutApp: NavigationItem("about_page",R.drawable.ic_baseline_info_24,"حول التطبيق")
+    object listoflec: NavigationItem("listoflec_page",R.drawable.ic_baseline_info_24,"حول التطبيق")
+    object ComposePDFViewer: NavigationItem("pdfview_page",R.drawable.ic_baseline_info_24,"حول التطبيق")
 }

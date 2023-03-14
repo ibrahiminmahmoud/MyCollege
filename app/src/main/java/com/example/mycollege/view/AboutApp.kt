@@ -33,7 +33,9 @@ fun AboutApp(navController: NavController) {
             verticalArrangement = Arrangement.spacedBy(4.dp),
 
             contentPadding = PaddingValues(horizontal = 13.dp, vertical = 8.dp)){
+
             items(1) {
+
                 Row(
                     modifier = Modifier
                         .background(Color.LightGray)

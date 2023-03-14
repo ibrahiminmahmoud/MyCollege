@@ -4,8 +4,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -17,7 +16,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.mycollege.R
 import com.example.mycollege.view.Drawer
 import com.example.mycollege.view.TopBar
 import com.example.mycollege.view.cairo as cairo1
@@ -27,7 +25,7 @@ import com.example.mycollege.view.cairo as cairo1
 fun Lectures(navController: NavController) {
     val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
     val scope = rememberCoroutineScope()
-    val suggestions1 = listOf("الامن السيبراني", "تشفير ", "تنقيب بيانات", "شبكات","قواعد بيانات", "نمذجةومحاكاة")
+    val suggestions4 = listOf("الامن السيبراني", "تشفير ", "تنقيب بيانات", "شبكات","قواعد بيانات", "نمذجةومحاكاة")
     val count = 6
 
 
@@ -39,20 +37,20 @@ fun Lectures(navController: NavController) {
             Drawer(scope = scope, scaffoldState = scaffoldState, navController = navController)
         },
         content = {
+            LazyColumn(
+                verticalArrangement = Arrangement.spacedBy(4.dp),
 
-            LazyVerticalGrid(cells = GridCells.Adaptive(130.dp)) {
+                contentPadding = PaddingValues(horizontal = 13.dp, vertical = 8.dp)){
 
-                    items(suggestions1.size) {
-                        Boxlec(
-                            "lable",
-                            R.drawable.openbook,
-                            "calender_page",
-                            navController
-                        )
-                    }
+                items(1) {
+
+                }
 
 
             }
+
+
+
         }
 
     )
@@ -66,6 +64,7 @@ fun Boxlec(
     icon : Int,
     route:String,
     navController: NavController,
+
 
     ) {
 

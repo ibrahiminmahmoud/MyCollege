@@ -18,7 +18,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
@@ -33,9 +32,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.mycollege.R
-import com.example.mycollege.ui.theme.Purple200
-import com.example.mycollege.ui.theme.Purple500
-import com.example.mycollege.ui.theme.Purple700
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -262,12 +258,12 @@ fun Home(navController: NavController) {
 
 @Composable
 fun Box(
-    title:String,
-    icon : Int,
+    title: String,
+    icon: Int,
     route:String,
     navController: NavController,
 
-) {
+    ) {
     Box(
         modifier = Modifier
             .padding(15.dp)
