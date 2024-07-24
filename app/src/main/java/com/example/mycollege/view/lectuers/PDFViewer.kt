@@ -5,17 +5,16 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.LinearProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
-import androidx.compose.runtime.R
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.jetpack.composepdfviewer.PdfViewer
+import com.example.mycollege.R
 
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun ComposePDFViewer(navController: NavController) {
+fun ComposePDFViewer(navController: NavController){
     var isLoading by remember { mutableStateOf(false) }
     var currentLoadingPage by remember { mutableStateOf<Int?>(null) }
     var pageCount by remember { mutableStateOf<Int?>(null) }
@@ -23,7 +22,7 @@ fun ComposePDFViewer(navController: NavController) {
     Box {
         PdfViewer(
             modifier = Modifier.fillMaxSize(),
-            pdfResId = com.example.mycollege.R.raw.des,
+            pdfResId = R.raw.lecture9,
             loadingListener = { loading, currentPage, maxPage ->
                 isLoading = loading
                 if (currentPage != null) currentLoadingPage = currentPage
@@ -52,4 +51,7 @@ fun ComposePDFViewer(navController: NavController) {
             }
         }
     }
+
+
+
 }

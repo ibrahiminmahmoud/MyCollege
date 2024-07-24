@@ -1,4 +1,4 @@
-package com.jetpack.composepdfviewer
+package com.example.mycollege.view.lectuers
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -20,7 +20,6 @@ import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.example.mycollege.view.lectuers.ZoomableImage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.*
