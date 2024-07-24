@@ -11,14 +11,23 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.mycollege.ui.theme.MyCollegeTheme
 import com.example.mycollege.view.*
+import com.example.mycollege.view.aboutapp.AboutApp
+import com.example.mycollege.view.calender.Calender
+import com.example.mycollege.view.home.MainScreen
 import com.example.mycollege.view.lectuers.ComposePDFViewer
+import com.example.mycollege.view.lectuers.ComposePDFViewerw
+
 import com.example.mycollege.view.lectuers.Lectures
-import com.example.mycollege.view.lectuers.listoflec
+import com.example.mycollege.view.lectuers.Listoflec
 import com.example.mycollege.view.post.Poster
-import com.example.mycollege.view.post.post1
-import com.example.mycollege.view.post.post2
+import com.example.mycollege.view.post.Post1
+import com.example.mycollege.view.post.Post2
+import com.example.mycollege.view.register.Register
+import com.example.mycollege.view.register.Register1
+import com.example.mycollege.view.result.Result
 import com.example.mycollege.view.tables.Tables
 import com.example.mycollege.view.tables.Tablesded
+import com.example.mycollege.view.tester.Tester
 
 class MainActivity : ComponentActivity() {
     @RequiresApi(Build.VERSION_CODES.N)
@@ -26,8 +35,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            MyCollegeTheme {
-               // NavigatePage()
+            MyCollegeTheme{
                   NavigatePage()
             }
         }
@@ -42,7 +50,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun  NavigatePage() {
     val navController = rememberNavController()
-    NavHost(navController, startDestination = NavigationItem.Lectures.route) {
+    NavHost(navController, startDestination = NavigationItem.Tables.route) {
         composable(NavigationItem.LoginPage.route) {
             LoginPage(navController = navController)
         }
@@ -51,6 +59,9 @@ fun  NavigatePage() {
         }
         composable(NavigationItem.Register.route) {
             Register(navController = navController)
+        }
+        composable(NavigationItem.Calender.route) {
+            Calender(navController = navController)
         }
         composable(NavigationItem.Register1.route) {
             Register1(navController = navController)
@@ -62,23 +73,33 @@ fun  NavigatePage() {
         composable(NavigationItem.ComposePDFViewer.route) {
             ComposePDFViewer(navController = navController)
         }
+        composable(NavigationItem.ComposePDFViewerw.route) {
+            ComposePDFViewerw(navController = navController)
+        }
 
-        composable(NavigationItem.listoflec.route) {
-            listoflec(navController = navController)
+
+        composable(NavigationItem.Listoflec.route) {
+            Listoflec(navController = navController)
         }
 
         composable(NavigationItem.Poster.route) {
             Poster(navController = navController)
         }
-        composable(NavigationItem.post1.route) {
-            post1(navController = navController)
+        composable(NavigationItem.Post1.route) {
+            Post1(navController = navController)
         }
-        composable(NavigationItem.post2.route) {
-            post2(navController = navController)
+        composable(NavigationItem.Post2.route) {
+            Post2(navController = navController)
         }
-        composable(NavigationItem.Calender.route) {
-            calender(navController = navController)
-        }
+
+
+//        composable(NavigationItem.Calender.route) {
+//            Tester(navController = navController)
+//        }
+//
+//        composable(NavigationItem.Calender.route) {
+//            Logout(navController = navController)
+//        }
         composable(NavigationItem.Tables.route) {
             Tables(navController = navController)
         }

@@ -1,0 +1,291 @@
+
+
+                items(1) {
+
+                    Row(
+                        modifier = Modifier
+                            .background(Color.LightGray)
+                            .fillMaxWidth()
+                            .padding(all=8.dp),
+
+                        ) {
+                        Image(
+                            modifier = Modifier
+                                .width(80.dp)
+                                .height(80.dp)
+                                .clip(CircleShape),
+                            painter = painterResource(R.drawable.pdf),
+                            contentDescription = "lec",
+                            contentScale = ContentScale.Fit,
+                        )
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(start = 8.dp),
+//                horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Top,
+
+                            ) {
+                            Text(
+
+                                text = "المحاضره الثالثة شبكات",
+                                color = Color.Black,
+                                fontFamily = cairo,
+                                fontWeight = FontWeight.Bold,
+                                textAlign = TextAlign.Right,
+                                modifier = Modifier
+                                    .padding(top = 4.dp)
+                                    .clickable { navController.navigate("pdfview_page") }
+
+                                ,
+
+                                )
+                            Text(
+                                text = "استاذه نجلاء",
+                                color = Color.Black,
+                                fontFamily = cairo,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier
+                                    .clickable { navController.navigate("pdfview_page") }
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(6.dp))
+
+
+
+                    }
+                    Spacer(modifier = Modifier.padding(5.dp))
+
+                }
+
+                items(1) {
+
+                    Row(
+                        modifier = Modifier
+                            .background(Color.LightGray)
+                            .fillMaxWidth()
+                            .padding(all=8.dp),
+
+                        ) {
+                        Image(
+                            modifier = Modifier
+                                .width(80.dp)
+                                .height(80.dp)
+                                .clip(CircleShape),
+                            painter = painterResource(R.drawable.pdf),
+                            contentDescription = "lec",
+                            contentScale = ContentScale.Fit,
+                        )
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(start = 8.dp),
+//                horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Top,
+
+                            ) {
+                            Text(
+
+                                text = "المحاضره الاولى شبكات",
+                                color = Color.Black,
+                                fontFamily = cairo,
+                                fontWeight = FontWeight.Bold,
+                                textAlign = TextAlign.Right,
+                                modifier = Modifier
+                                    .padding(top = 4.dp)
+                                    .clickable { navController.navigate("pdfview_page") }
+
+                                ,
+
+                                )
+                            Text(
+                                text = "استاذه نجلاء",
+                                color = Color.Black,
+                                fontFamily = cairo,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier
+                                    .clickable { navController.navigate("pdfview_page") }
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(6.dp))
+
+
+
+                    }
+                    Spacer(modifier = Modifier.padding(5.dp))
+
+                }
+
+                items(1) {
+
+                    Row(
+                        modifier = Modifier
+                            .background(Color.LightGray)
+                            .fillMaxWidth()
+                            .padding(all=8.dp),
+
+                        ) {
+                        Image(
+                            modifier = Modifier
+                                .width(80.dp)
+                                .height(80.dp)
+                                .clip(CircleShape),
+                            painter = painterResource(R.drawable.pdf),
+                            contentDescription = "lec",
+                            contentScale = ContentScale.Fit,
+                        )
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(start = 8.dp),
+//                horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Top,
+
+                            ) {
+                            Text(
+
+                                text = "المحاضره الاولى شبكات",
+                                color = Color.Black,
+                                fontFamily = cairo,
+                                fontWeight = FontWeight.Bold,
+                                textAlign = TextAlign.Right,
+                                modifier = Modifier
+                                    .padding(top = 4.dp)
+                                    .clickable { navController.navigate("pdfview_page") }
+
+                                ,
+
+                                )
+                            Text(
+                                text = "استاذه نجلاء",
+                                color = Color.Black,
+                                fontFamily = cairo,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier
+                                    .clickable { navController.navigate("pdfview_page") }
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(6.dp))
+
+
+
+                    }
+                    Spacer(modifier = Modifier.padding(5.dp))
+
+                }
+
+                items(1) {
+
+                    Row(
+                        modifier = Modifier
+                            .background(Color.LightGray)
+                            .fillMaxWidth()
+                            .padding(all=8.dp),
+
+                        ) {
+                        Image(
+                            modifier = Modifier
+                                .width(80.dp)
+                                .height(80.dp)
+                                .clip(CircleShape),
+                            painter = painterResource(R.drawable.pdf),
+                            contentDescription = "lec",
+                            contentScale = ContentScale.Fit,
+                        )
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(start = 8.dp),
+//                horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Top,
+
+                            ) {
+                            Text(
+
+                                text = "المحاضره الاولى شبكات",
+                                color = Color.Black,
+                                fontFamily = cairo,
+                                fontWeight = FontWeight.Bold,
+                                textAlign = TextAlign.Right,
+                                modifier = Modifier
+                                    .padding(top = 4.dp)
+                                    .clickable { navController.navigate("pdfview_page") }
+
+                                ,
+
+                                )
+                            Text(
+                                text = "استاذه نجلاء",
+                                color = Color.Black,
+                                fontFamily = cairo,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier
+                                    .clickable { navController.navigate("pdfview_page") }
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(6.dp))
+
+
+
+                    }
+                    Spacer(modifier = Modifier.padding(5.dp))
+
+                }
+
+                items(1) {
+
+                    Row(
+                        modifier = Modifier
+                            .background(Color.LightGray)
+                            .fillMaxWidth()
+                            .padding(all=8.dp),
+
+                        ) {
+                        Image(
+                            modifier = Modifier
+                                .width(80.dp)
+                                .height(80.dp)
+                                .clip(CircleShape),
+                            painter = painterResource(R.drawable.pdf),
+                            contentDescription = "lec",
+                            contentScale = ContentScale.Fit,
+                        )
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(start = 8.dp),
+//                horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Top,
+
+                            ) {
+                            Text(
+
+                                text = "المحاضره الاولى شبكات",
+                                color = Color.Black,
+                                fontFamily = cairo,
+                                fontWeight = FontWeight.Bold,
+                                textAlign = TextAlign.Right,
+                                modifier = Modifier
+                                    .padding(top = 4.dp)
+                                    .clickable { navController.navigate("pdfview_page") }
+
+                                ,
+
+                                )
+                            Text(
+                                text = "استاذه نجلاء",
+                                color = Color.Black,
+                                fontFamily = cairo,
+                                fontWeight = FontWeight.Bold,
+                                modifier = Modifier
+                                    .clickable { navController.navigate("pdfview_page") }
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(6.dp))
+
+
+
+                    }
+                    Spacer(modifier = Modifier.padding(5.dp))
+
+                }

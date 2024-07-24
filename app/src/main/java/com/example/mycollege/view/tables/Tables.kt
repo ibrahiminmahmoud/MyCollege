@@ -3,17 +3,19 @@
 package com.example.mycollege.view.tables
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.mycollege.R
-import com.example.mycollege.view.Drawer
-import com.example.mycollege.view.TopBar
+import com.example.mycollege.view.home.Drawer
+import com.example.mycollege.view.home.TopBar
 
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -28,32 +30,40 @@ fun Tables(navController: NavController) {
         drawerContent = {
             Drawer(scope = scope, scaffoldState = scaffoldState, navController = navController)
         },
-        content = {
-            LazyVerticalGrid(cells = GridCells.Adaptive(150.dp), content = {
+        content = {paddingValues ->
+            Box(modifier = Modifier.padding(paddingValues))
+            LazyVerticalGrid(columns = GridCells.Adaptive(170.dp),
+                content = {
 
             items(1) {
-                com.example.mycollege.view.Box(
+                com.example.mycollege.view.home.Box(
                     "امتحانات",
                     R.drawable.score,
                     "Tablesded_page",
-                    navController
+                    navController,
+                    60,
+                    60
                 )
 
             }
             items(1) {
-                com.example.mycollege.view.Box(
+                com.example.mycollege.view.home.Box(
                     "العملي",
                     R.drawable.code,
                     "Tablesded_page",
-                    navController
+                    navController,
+                    60,
+                    60
                 )
             }
             items(1) {
-                com.example.mycollege.view.Box(
+                com.example.mycollege.view.home.Box(
                     "المحاضرات",
                     R.drawable.lecture,
                     "Tablesded_page",
-                    navController
+                    navController,
+                    60,
+                    60
                 )
             }
 

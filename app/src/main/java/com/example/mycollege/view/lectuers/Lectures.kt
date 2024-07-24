@@ -1,12 +1,10 @@
 package com.example.mycollege.view.lectuers
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -14,54 +12,54 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.mycollege.R
-import com.example.mycollege.view.Drawer
-import com.example.mycollege.view.TopBar
-import com.example.mycollege.view.cairo as cairo1
+import com.example.mycollege.view.home.Drawer
+import com.example.mycollege.view.home.TopBar
+import com.example.mycollege.view.home.amir
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun Lectures(navController: NavController) {
     val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
     val scope = rememberCoroutineScope()
-    val suggestions4 = listOf("الامن السيبراني", "تشفير ", "تنقيب بيانات", "شبكات","قواعد بيانات", "نمذجةومحاكاة")
-    val count = 6
+    val suggestions4 = listOf(
+        "الامن السيبراني",
+        "تشفير ",
+        "تنقيب بيانات",
+        "شبكات",
+        "قواعد بيانات",
+        "نمذجة ومحاكاة")
 
 
+   Scaffold(scaffoldState = scaffoldState,
+       topBar = { TopBar(scope = scope, scaffoldState = scaffoldState,"محاضرات") },
+       drawerContent = {
+           Drawer(scope = scope, scaffoldState = scaffoldState, navController = navController)
+       }) {
+           paddingValues ->
+       Box(modifier = Modifier.padding(paddingValues))
 
-    Scaffold(
-        scaffoldState = scaffoldState,
-        topBar = { TopBar(scope = scope, scaffoldState = scaffoldState,"محاضرات") },
-        drawerContent = {
-            Drawer(scope = scope, scaffoldState = scaffoldState, navController = navController)
-        },
-        content = {
-                LazyVerticalGrid(cells = GridCells.Adaptive(130.dp)){
+           LazyVerticalGrid(
+               columns = GridCells.Adaptive(170.dp),
+               modifier = Modifier
+                   .padding(17.dp)
+           )
+           {
 
-                items(suggestions4.size) { i->
-
-                        Boxlec(
-                            title = suggestions4[i],
-                            icon = R.drawable.openbook,
-                            route = "listoflec_page",
-                            navController = navController
-                        )
-                    }
-
-
-
-
-            }
-
-
-
-        }
-
-    )
+               items(suggestions4.size) { i->
+                   Boxlec(
+                       title = suggestions4[i],
+                       icon = R.drawable.leca,
+                       route = "listoflec_page",
+                       navController = navController
+                   )
+               }
+           }
+   }
 }
 
 /*[***Start Fun Box***]*/
@@ -72,11 +70,7 @@ fun Boxlec(
     icon : Int,
     route:String,
     navController: NavController,
-
-
     ) {
-
-    val suggestions4 = listOf("الامن السيبراني", "تشفير ", "تنقيب بيانات", "شبكات","قواعد بيانات", "نمذجةومحاكاة")
     Box(
         modifier = Modifier
             .padding(15.dp)
@@ -92,10 +86,8 @@ fun Boxlec(
 
                 ),
             modifier = Modifier
-                .height(150.dp)
+                .height(170.dp)
                 .width(130.dp)
-            // .padding(10.dp)
-
 
         ) {
             Column(modifier = Modifier
@@ -121,13 +113,12 @@ fun Boxlec(
                         .background(Color(0xFF177E89)),
 
 
-
                     ){}
                 Spacer(modifier = Modifier.padding(6.dp))
                 Text(
                         text = title,
                         color = Color.Black,
-                        fontFamily = cairo1,
+                        fontFamily = amir,
                         fontWeight = FontWeight.Bold
                     )
 
@@ -135,10 +126,6 @@ fun Boxlec(
             }
 
         }
-
-
-
-
 
 
     }

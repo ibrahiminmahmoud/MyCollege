@@ -1,16 +1,19 @@
 package com.example.mycollege.view.post
 
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.mycollege.R
-import com.example.mycollege.view.Drawer
-import com.example.mycollege.view.TopBar
+import com.example.mycollege.view.home.Box
+import com.example.mycollege.view.home.Drawer
+import com.example.mycollege.view.home.TopBar
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -24,23 +27,28 @@ fun Poster(navController: NavController) {
         drawerContent = {
             Drawer(scope = scope, scaffoldState = scaffoldState, navController = navController)
         },
-        content = {
+        content = {paddingValues ->
+            androidx.compose.foundation.layout.Box(modifier = Modifier.padding(paddingValues))
 
-            LazyVerticalGrid(cells = GridCells.Adaptive(130.dp)) {
+            LazyVerticalGrid(columns = GridCells.Adaptive(170.dp)) {
                 items(1) {
-                    com.example.mycollege.view.Box(
+                    Box(
                         "عام ",
                         R.drawable.advertising,
                         "post1_page",
-                        navController
+                        navController,
+                        60,
+                        60
                     )
                 }
                 items(1) {
-                    com.example.mycollege.view.Box(
+                    Box(
                         "خاص",
                         R.drawable.advertising,
                         "post2_page",
-                        navController
+                        navController,
+                        60,
+                        60
                     )
                 }
             }

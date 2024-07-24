@@ -2,13 +2,11 @@ package com.example.mycollege.view.tables
 
 
 
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -16,16 +14,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.mycollege.R
-import com.example.mycollege.view.Drawer
-import com.example.mycollege.view.TopBar
-import com.example.mycollege.view.cairo
+import com.example.mycollege.view.home.Drawer
+import com.example.mycollege.view.home.TopBar
+import com.example.mycollege.view.home.cairo
 
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun Tablesded(navController: NavController) {
     val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
@@ -36,124 +35,81 @@ fun Tablesded(navController: NavController) {
         topBar = { TopBar(scope = scope, scaffoldState = scaffoldState,"محاضرات") },
         drawerContent = {
             Drawer(scope = scope, scaffoldState = scaffoldState, navController = navController)
-        },
-        content = { LazyColumn(
-            verticalArrangement = Arrangement.spacedBy(4.dp),
+        },content = {
+                paddingValues ->
+            Box(modifier = Modifier.padding(paddingValues))
+            LazyColumn(
+                modifier = Modifier
+                    .padding(17.dp)
+            )
+            {
 
-            contentPadding = PaddingValues(horizontal = 13.dp, vertical = 8.dp)){
-
-            items(1) {
-                Row(
-                    modifier = Modifier
-                        .background(Color(0xffF7F7FF))
-                        .fillMaxWidth()
-                        .padding(1.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center
+                items(1) {
 
 
-                ){
-
-                    Column(modifier = Modifier
-                        .padding(start = 4.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally,
+                    Row(
+                        modifier = Modifier
+                            .background(color = Color(0xFFECF0F0))
+                            .fillMaxWidth()
+                            .padding(9.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.Start
 
 
                     ) {
                         Image(
-                            painter = painterResource(id = R.drawable.table),
+                            painter = painterResource(id = R.drawable.post1),
                             contentDescription = "table",
                             modifier = Modifier
-                                .height(360.dp)
-                                .width(320.dp)
+                                .width(60.dp)
+                                .height(60.dp)
                         )
-                        Text(
-                            text = "محاضرات تقانة المعلومات",
-                            modifier = Modifier.padding(top = 4.dp),
-                            fontSize = 14.sp,
-                            fontFamily = cairo
-                        )
-                        Spacer(modifier = Modifier.padding(4.dp))
-
-                    }
-                }
-            }
-            items(1) {
-                Row(
-                    modifier = Modifier
-                        .background(Color(0xffF7F7FF))
-                        .fillMaxWidth()
-                        .padding(1.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center
-
-
-                ){
-
-                    Column(modifier = Modifier
-                        .padding(start = 4.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-
-
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.table),
-                            contentDescription = "table",
+                        Column(
                             modifier = Modifier
-                                .height(360.dp)
-                                .width(320.dp)
-                        )
-                        Text(
-                            text = "محاضرات تقانة المعلومات",
-                            modifier = Modifier.padding(top = 4.dp),
-                            fontSize = 14.sp,
-                            fontFamily = cairo
-                        )
-                        Spacer(modifier = Modifier.padding(4.dp))
+                                .padding(all= 8.dp)
+                                .clickable { navController.navigate("pdfview_page1") },
+                                 horizontalAlignment = Alignment.Start
 
-                    }
-                }
-            }
-            items(1) {
-                Row(
-                    modifier = Modifier
-                        .background(Color(0xffF7F7FF))
-                        .fillMaxWidth()
-                        .padding(1.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center
+                        ) {
+                            Text(
+                                text = "امتحانات الفصل الدراسي الاول",
+                                modifier = Modifier.padding(top = 4.dp),
+                                fontSize = 14.sp,
+                                fontFamily = cairo,
+                                style = TextStyle(fontWeight = FontWeight.Bold)
+                            )
 
+                            Text(
+                                text = "للعام 2024/2025",
+                                color= Color.DarkGray,
+                                modifier = Modifier.padding(top = 4.dp),
+                                fontSize = 10.sp,
+                                fontFamily = cairo
 
-                ){
-
-                    Column(modifier = Modifier
-                        .padding(start = 4.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-
-
-                    ) {
-                        Image(
-                            painter = painterResource(id = R.drawable.table),
-                            contentDescription = "table",
+                            )
+                        }
+                        Spacer(modifier = Modifier.padding(9.dp))
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_baseline_visibility_24),
+                            contentDescription = "test",
                             modifier = Modifier
-                                .height(360.dp)
-                                .width(320.dp)
+                                .clickable { navController.navigate("pdfview_page1") }
                         )
-                        Text(
-                            text = "محاضرات تقانة المعلومات",
-                            modifier = Modifier.padding(top = 4.dp),
-                            fontSize = 14.sp,
-                            fontFamily = cairo
+                        Spacer(modifier = Modifier.padding(5.dp))
+                        Icon(
+                            painter = painterResource(id = R.drawable.baseline_download_24),
+                            contentDescription = "test2",
+                            tint = Color(0xFF04AB0B),
                         )
-                        Spacer(modifier = Modifier.padding(4.dp))
 
                     }
+
                 }
+
+
             }
+        }
 
-
-
-        } }
 
     )
 
