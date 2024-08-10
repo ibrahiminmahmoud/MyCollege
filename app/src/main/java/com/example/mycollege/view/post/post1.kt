@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.mycollege.R
+import com.example.mycollege.view.NavigationItem
 import com.example.mycollege.view.home.Drawer
 import com.example.mycollege.view.home.TopBar
 import com.example.mycollege.view.home.cairo
@@ -111,59 +112,4 @@ fun Post1(navController: NavController){
     )
 
 }
-@Composable
-fun ZoomableImage(name:String,icon:Int) {
-    val scale = remember { androidx.compose.runtime.mutableFloatStateOf(1f) }
-    val rotationState = remember { mutableFloatStateOf(1f) }
-    val scrollState = rememberScrollState()
 
-    Row(
-        modifier = Modifier
-            .background(Color(0xffF7F7FF))
-            .fillMaxWidth()
-            .horizontalScroll(scrollState)
-            .clip(RectangleShape)
-            .padding(1.dp)
-            .pointerInput(Unit) {
-                detectTransformGestures { centroid, pan, zoom, rotation ->
-                    scale.value *= zoom
-                    rotationState.value += rotation
-                }
-            },
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center
-
-
-    ){
-
-        Column(modifier = Modifier
-            .padding(start = 4.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-
-
-            ) {
-            Image(
-                painter = painterResource(icon),
-                contentDescription = "table",
-                modifier = Modifier
-                    .height(360.dp)
-                    .width(320.dp)
-                    .graphicsLayer(
-                        // adding some zoom limits (min 50%, max 200%)
-                        scaleX = maxOf(.5f, minOf(3f, scale.value)),
-                        scaleY = maxOf(.5f, minOf(3f, scale.value)),
-                        rotationZ = rotationState.value
-                    ),
-            )
-            Text(
-                text = name,
-                modifier = Modifier.padding(top = 4.dp),
-                fontSize = 14.sp,
-                fontFamily = cairo
-            )
-            Spacer(modifier = Modifier.padding(4.dp))
-
-        }
-    }
-
-}

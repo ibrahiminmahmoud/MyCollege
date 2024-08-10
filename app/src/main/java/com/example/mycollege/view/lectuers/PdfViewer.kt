@@ -170,7 +170,7 @@ suspend fun Context.loadPdf(
         currentPage: Int?,
         maxPage: Int?
     ) -> Unit = { _, _, _ -> }
-): List<String> = withContext(Dispatchers.Default) {
+): List<String> = withContext(Dispatchers.IO) {
     loadingListener(true, null, null)
     val outputDir = cacheDir
     val tempFile = File.createTempFile("temp", "pdf", outputDir)
@@ -200,7 +200,7 @@ suspend fun Context.loadPdf(
 
 @Throws(IOException::class)
 private fun copy(source: InputStream, target: OutputStream) {
-    val buf = ByteArray(9192)
+    val buf = ByteArray(19192)
     var length: Int
     while (source.read(buf).also { length = it } > 0) {
         target.write(buf, 0, length)

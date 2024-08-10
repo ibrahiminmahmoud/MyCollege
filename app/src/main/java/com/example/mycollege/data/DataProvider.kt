@@ -16,6 +16,7 @@
 package com.example.mycollege.data
 
 import com.example.mycollege.R
+import com.example.mycollege.R.raw.*
 import com.example.mycollege.data.model.Lec
 
 
@@ -26,7 +27,7 @@ object DataProvider {
             id = 1,
             title = "Monty",
             description = "Monty enjoys chicken treats and cuddling while watching Seinfeld.",
-            lecId = R.raw.des
+            lecId = des
         )
 
     val leclist = listOf(
@@ -35,14 +36,14 @@ object DataProvider {
             id = 2,
             title = "Jubilee",
             description = "Jubilee enjoys thoughtful discussions by the campfire.",
-            lecId = R.raw.samplepdf
+            lecId = samplepdf
         ),
         Lec(
             id = 3,
             title = "Beezy",
 
             description = "Beezy's favorite past-time is helping you choose your brand color.",
-            lecId = R.raw.lecture9
+            lecId = lecture9
         ),
 
     )

@@ -105,8 +105,10 @@ fun Drawer(scope: CoroutineScope, scaffoldState: ScaffoldState, navController: N
         NavigationItem.Tables,
         NavigationItem.Lectures,
         NavigationItem.Result,
-        NavigationItem.AboutApp
-    )
+        NavigationItem.Tester,
+        NavigationItem.AboutApp,
+
+        )
 
 
 
@@ -262,7 +264,7 @@ fun Home(navController: NavController) {
        /****Start About***/
        items(1) {
            Box("اختبارات",
-                R.drawable.test1,"about_page",navController,80,80)
+                R.drawable.test1,"tester_page",navController,80,80)
        }
        /****End About***/
 

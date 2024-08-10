@@ -4,19 +4,23 @@ import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+
 import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.currentComposer
+import androidx.compose.ui.Modifier
+import androidx.lifecycle.ViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.mycollege.data.model.MyViewModel
 import com.example.mycollege.ui.theme.MyCollegeTheme
 import com.example.mycollege.view.*
 import com.example.mycollege.view.aboutapp.AboutApp
 import com.example.mycollege.view.calender.Calender
 import com.example.mycollege.view.home.MainScreen
-import com.example.mycollege.view.lectuers.ComposePDFViewer
 import com.example.mycollege.view.lectuers.ComposePDFViewerw
-
+import com.example.mycollege.view.lectuers.ComposePDFViewer
 import com.example.mycollege.view.lectuers.Lectures
 import com.example.mycollege.view.lectuers.Listoflec
 import com.example.mycollege.view.post.Poster
@@ -36,21 +40,19 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             MyCollegeTheme{
-                  NavigatePage()
+                NavigatePage()
             }
         }
     }
 }
 
 
-
-
-
 @RequiresApi(Build.VERSION_CODES.N)
 @Composable
 fun  NavigatePage() {
     val navController = rememberNavController()
-    NavHost(navController, startDestination = NavigationItem.Tables.route) {
+    NavHost(navController, startDestination = NavigationItem.AboutApp.route, builder = {
+
         composable(NavigationItem.LoginPage.route) {
             LoginPage(navController = navController)
         }
@@ -70,11 +72,11 @@ fun  NavigatePage() {
         composable(NavigationItem.MainScreen.route) {
             MainScreen(navController = navController)
         }
-        composable(NavigationItem.ComposePDFViewer.route) {
-            ComposePDFViewer(navController = navController)
-        }
         composable(NavigationItem.ComposePDFViewerw.route) {
             ComposePDFViewerw(navController = navController)
+        }
+        composable(NavigationItem.ComposePDFViewer.route) {
+            ComposePDFViewer(navController = navController)
         }
 
 
@@ -93,13 +95,10 @@ fun  NavigatePage() {
         }
 
 
-//        composable(NavigationItem.Calender.route) {
-//            Tester(navController = navController)
-//        }
-//
-//        composable(NavigationItem.Calender.route) {
-//            Logout(navController = navController)
-//        }
+        composable(NavigationItem.Tester.route) {
+            Tester(navController = navController)
+        }
+
         composable(NavigationItem.Tables.route) {
             Tables(navController = navController)
         }
@@ -113,7 +112,7 @@ fun  NavigatePage() {
         composable(NavigationItem.AboutApp.route) {
             AboutApp(navController = navController)
         }
-    }
+    })
 
 }
 

@@ -58,6 +58,7 @@ dependencies {
     implementation 'androidx.compose.material:material:1.6.8'
     implementation 'com.google.firebase:firebase-database:21.0.0'
     implementation 'androidx.compose.foundation:foundation-android:1.6.8'
+    implementation 'androidx.compose.runtime:runtime-livedata:1.6.8'
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
