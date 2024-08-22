@@ -33,10 +33,10 @@ enum class PdfListDirection {
 fun PdfViewer(
     @RawRes pdfResId: Int,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = Color(0xFF909090),
+    backgroundColor: Color = Color(0xFFFFFFFF),
     pageColor: Color = Color.White,
     listDirection: PdfListDirection = PdfListDirection.VERTICAL,
-    arrangement: Arrangement.HorizontalOrVertical = Arrangement.spacedBy(16.dp),
+    arrangement: Arrangement.HorizontalOrVertical = Arrangement.spacedBy(0.dp),
     loadingListener: (
         isLoading: Boolean,
         currentPage: Int?,
@@ -60,10 +60,10 @@ fun PdfViewer(
 fun PdfViewer(
     pdfStream: InputStream,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = Color(0xFF909090),
+    backgroundColor: Color = Color(0xFFFDFBFB),
     pageColor: Color = Color.White,
     listDirection: PdfListDirection = PdfListDirection.VERTICAL,
-    arrangement: Arrangement.HorizontalOrVertical = Arrangement.spacedBy(16.dp),
+    arrangement: Arrangement.HorizontalOrVertical = Arrangement.spacedBy(0.dp),
     loadingListener: (
         isLoading: Boolean,
         currentPage: Int?,
@@ -93,7 +93,7 @@ fun PdfViewer(
     modifier: Modifier = Modifier,
     backgroundColor: Color = Color(0xFF909090),
     listDirection: PdfListDirection = PdfListDirection.VERTICAL,
-    arrangement: Arrangement.HorizontalOrVertical = Arrangement.spacedBy(16.dp),
+    arrangement: Arrangement.HorizontalOrVertical = Arrangement.spacedBy(0.dp),
     loadingListener: (
         isLoading: Boolean,
         currentPage: Int?,
@@ -157,7 +157,7 @@ private fun PaginaPDF(
 ) {
     Card(
         modifier = Modifier.background(backgroundColor),
-        elevation = 5.dp
+        elevation = 0.dp
     ) {
         ZoomableImage(painter = BitmapPainter(imagem), scrollState = lazyState)
     }
@@ -186,10 +186,10 @@ suspend fun Context.loadPdf(
         file.mkdirs()
         file.deleteOnExit()
         val page = renderer.openPage(pageNumber)
-        val bitmap = Bitmap.createBitmap(1240, 1754, Bitmap.Config.ARGB_8888)
+        val bitmap = Bitmap.createBitmap(1040, 1454, Bitmap.Config.ARGB_8888)
         page.render(bitmap, null, null, PdfRenderer.Page.RENDER_MODE_FOR_DISPLAY)
         page.close()
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, FileOutputStream(file))
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, FileOutputStream(file))
         Log.i("PDF_VIEWER", "Loaded page $pageNumber")
         file.absolutePath.also { Log.d("TESTE", it) }
     }.also {
