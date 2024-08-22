@@ -32,7 +32,7 @@ fun Tablesded(navController: NavController) {
 
     Scaffold(
         scaffoldState = scaffoldState,
-        topBar = { TopBar(scope = scope, scaffoldState = scaffoldState,"محاضرات") },
+        topBar = { TopBar(scope = scope, scaffoldState = scaffoldState,"امتحانات") },
         drawerContent = {
             Drawer(scope = scope, scaffoldState = scaffoldState, navController = navController)
         },content = {
@@ -58,7 +58,7 @@ fun Tablesded(navController: NavController) {
 
                     ) {
                         Image(
-                            painter = painterResource(id = R.drawable.post1),
+                            painter = painterResource(id = R.drawable.score),
                             contentDescription = "table",
                             modifier = Modifier
                                 .width(60.dp)
@@ -67,7 +67,7 @@ fun Tablesded(navController: NavController) {
                         Column(
                             modifier = Modifier
                                 .padding(all= 8.dp)
-                                .clickable { navController.navigate("pdfview_page1") },
+                                .clickable { navController.navigate("TablesViewer1") },
                                  horizontalAlignment = Alignment.Start
 
                         ) {

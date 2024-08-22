@@ -213,6 +213,9 @@ fun DrawerItem(item: NavigationItem, selected: Boolean, onItemClick: (Navigation
 val cairo = FontFamily(
     Font(R.font.cairo_semibold)
 )
+val cairo1 = FontFamily(
+    Font(R.font.cairo_extralight)
+)
 val amir = FontFamily(
     Font(R.font.amiri)
 )

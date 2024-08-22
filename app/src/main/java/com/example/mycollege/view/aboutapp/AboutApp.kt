@@ -99,7 +99,7 @@ fun AboutApp(navController: NavController) {
                     Row(
                         modifier = Modifier
                             .background(color = Color(0xFFECF0F0))
-                            .clickable {  }
+                            .clickable { navController.navigate("Polices") }
                             .fillMaxWidth()
                             .padding(10.dp),
                         verticalAlignment = Alignment.CenterVertically,
@@ -126,7 +126,7 @@ fun AboutApp(navController: NavController) {
 
                             modifier = Modifier
 
-                                .clickable {  }
+                                .clickable { navController.navigate("Polices") }
                         )
 
 
@@ -139,7 +139,7 @@ fun AboutApp(navController: NavController) {
                     Row(
                         modifier = Modifier
                             .background(color = Color(0xFFECF0F0))
-                            .clickable {  }
+                            .clickable {  navController.navigate("Services") }
                             .fillMaxWidth()
                             .padding(10.dp),
                         verticalAlignment = Alignment.CenterVertically,
@@ -167,7 +167,7 @@ fun AboutApp(navController: NavController) {
 
                             modifier = Modifier
 
-                                .clickable { }
+                                .clickable { navController.navigate("Services") }
                         )
 
 
@@ -180,7 +180,7 @@ fun AboutApp(navController: NavController) {
                     Row(
                         modifier = Modifier
                             .background(color = Color(0xFFECF0F0))
-                            .clickable {  }
+                            .clickable {navController.navigate("Copywirghit")  }
                             .fillMaxWidth()
                             .padding(10.dp),
                         verticalAlignment = Alignment.CenterVertically,
@@ -208,7 +208,7 @@ fun AboutApp(navController: NavController) {
 
                             modifier = Modifier
 
-                                .clickable {  }
+                                .clickable { navController.navigate("Copywirghit") }
                         )
                     }
 

@@ -93,7 +93,7 @@ fun Calender(navController: NavController) {
                             contentDescription = "test",
                             modifier = Modifier
 
-                                .clickable { navController.navigate("pdfview_page1") }
+                                .clickable { navController.navigate("CalenderViewer") }
                         )
                         Icon(
                             painter = painterResource(id = R.drawable.baseline_download_24),

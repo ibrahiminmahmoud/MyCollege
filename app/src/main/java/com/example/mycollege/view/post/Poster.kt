@@ -34,7 +34,7 @@ fun Poster(navController: NavController) {
                 items(1) {
                     Box(
                         "عام ",
-                        R.drawable.advertising,
+                        R.drawable.post1,
                         "post1_page",
                         navController,
                         60,
@@ -44,7 +44,7 @@ fun Poster(navController: NavController) {
                 items(1) {
                     Box(
                         "خاص",
-                        R.drawable.advertising,
+                        R.drawable.post1,
                         "post2_page",
                         navController,
                         60,

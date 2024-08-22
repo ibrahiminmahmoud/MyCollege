@@ -8,13 +8,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.example.mycollege.R
 
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun ComposePDFViewer(navController: NavController){
+fun ComposePDFViewer() {
     var isLoading by remember { mutableStateOf(false) }
     var currentLoadingPage by remember { mutableStateOf<Int?>(null) }
     var pageCount by remember { mutableStateOf<Int?>(null) }

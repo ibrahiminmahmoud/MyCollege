@@ -63,8 +63,8 @@ fun Result(navController: NavController) {
                     painter = painterResource(id = R.drawable.notepad),
                     contentDescription = "table",
                     modifier = Modifier
-                        .width(80.dp)
-                        .height(80.dp)
+                        .width(60.dp)
+                        .height(60.dp)
                 )
                 Column(
                     modifier = Modifier
@@ -94,7 +94,7 @@ fun Result(navController: NavController) {
                         painter = painterResource(id = R.drawable.ic_baseline_visibility_24),
                         contentDescription = "test",
                         modifier = Modifier
-                            .clickable { navController.navigate("pdfview_page1") }
+                            .clickable { navController.navigate("ResultViewer") }
                     )
                 Icon(
                     painter = painterResource(id = R.drawable.baseline_download_24),

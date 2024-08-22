@@ -56,7 +56,7 @@ fun Register1(navController: NavController) {
         Box(modifier = Modifier.padding(paddingValues))
         LazyColumn(
             modifier = Modifier
-                .background(color = Color(0xFFECF0F0))
+                .background(Color.White)
                 .fillMaxHeight()
                 .padding(17.dp),
             horizontalAlignment = Alignment.CenterHorizontally,

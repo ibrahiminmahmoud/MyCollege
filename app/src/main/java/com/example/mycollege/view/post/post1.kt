@@ -72,7 +72,7 @@ fun Post1(navController: NavController){
 
                         ) {
                             Text(
-                                text = "بدأ النشاط الإكادمي بالكلية",
+                                text = "إعلان توقـف الدراسـة",
                                 modifier = Modifier.padding(top = 4.dp),
                                 fontSize = 16.sp,
                                 fontFamily = cairo,
@@ -80,7 +80,7 @@ fun Post1(navController: NavController){
                             )
 
                             Text(
-                                text = "للعام 2024/2025",
+                                text = "الاربعاء 26/07/2022",
                                 color= Color.DarkGray,
                                 modifier = Modifier.padding(top = 4.dp),
                                 fontSize = 10.sp,
@@ -93,7 +93,7 @@ fun Post1(navController: NavController){
                             painter = painterResource(id = R.drawable.ic_baseline_visibility_24),
                             contentDescription = "test",
                             modifier = Modifier
-                                .clickable { navController.navigate("pdfview_page1") }
+                                .clickable { navController.navigate("PostViewer1") }
                         )
                         Spacer(modifier = Modifier.padding(5.dp))
                         Icon(

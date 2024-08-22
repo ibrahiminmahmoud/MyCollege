@@ -38,6 +38,9 @@ fun LoginPage(navController:NavController){
     val emailVal = remember {
         mutableStateOf("")
     }
+//    val setnum1 = remember {
+//        mutableStateOf("16-bt002")
+//    }
     val passwordVal = remember {
         mutableStateOf("")
     }
@@ -45,7 +48,8 @@ fun LoginPage(navController:NavController){
         mutableStateOf(false)
     }
 
-    val setnum= "16-bt002"
+    val setnum= "16-bt001"
+    val setnum1= "16-bt002"
     val pass="123"
     val icon = if(passwordVisibility.value)
        painterResource(id = R.drawable.ic_baseline_remove_red_eye_24)
@@ -201,7 +205,26 @@ fun LoginPage(navController:NavController){
                             }
 
                             else -> {
+                                when{
 
+                                    emailVal.value == setnum && passwordVal.value == pass ->{
+                                        navController.navigate("home_page")
+                                        Toast.makeText(
+                                            context,
+                                            "Sign in Successfully",
+                                            Toast.LENGTH_LONG
+                                        ).show()
+                                    }
+                                    emailVal.value == setnum1 && passwordVal.value == pass ->{
+                                        navController.navigate("home_page")
+                                        Toast.makeText(
+                                            context,
+                                            "Sign in Successfully",
+                                            Toast.LENGTH_LONG
+                                        ).show()
+                                    }
+
+                                }
 
                                 if (emailVal.value == setnum && passwordVal.value == pass) {
                                     navController.navigate("home_page")
@@ -210,7 +233,8 @@ fun LoginPage(navController:NavController){
                                         "Sign in Successfully",
                                         Toast.LENGTH_LONG
                                     ).show()
-                                } else if (emailVal.value != setnum) {
+                                }
+                                else if (emailVal.value != setnum) {
                                     Toast.makeText(
                                         context,
                                         "انت غير مسجل في النطام",

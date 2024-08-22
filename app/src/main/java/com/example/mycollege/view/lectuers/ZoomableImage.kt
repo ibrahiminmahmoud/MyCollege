@@ -38,10 +38,10 @@ fun ZoomableImage(
 ) {
     val coroutineScope = rememberCoroutineScope()
 
-    val scale = remember { mutableStateOf(1f) }
-    val rotationState = remember { mutableStateOf(1f) }
-    val offsetX = remember { mutableStateOf(1f) }
-    val offsetY = remember { mutableStateOf(1f) }
+    val scale = remember { mutableStateOf(0f) }
+    val rotationState = remember { mutableStateOf(0f) }
+    val offsetX = remember { mutableStateOf(0f) }
+    val offsetY = remember { mutableStateOf(0f) }
 
     Box(
         modifier = Modifier
@@ -61,8 +61,7 @@ fun ZoomableImage(
             )
             .pointerInput(Unit) {
                 if (isZoomable) {
-                    forEachGesture {
-                        awaitPointerEventScope {
+                    awaitEachGesture {
                             awaitFirstDown()
                             do {
                                 val event = awaitPointerEvent()
@@ -90,7 +89,7 @@ fun ZoomableImage(
                             } while (event.changes.any { it.pressed })
                         }
                     }
-                }
+
             }
 
     ) {

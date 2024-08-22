@@ -26,13 +26,7 @@ import com.example.mycollege.view.home.amir
 fun Lectures(navController: NavController) {
     val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
     val scope = rememberCoroutineScope()
-    val suggestions4 = listOf(
-        "الامن السيبراني",
-        "تشفير ",
-        "تنقيب بيانات",
-        "شبكات",
-        "قواعد بيانات",
-        "نمذجة ومحاكاة")
+
 
 
    Scaffold(scaffoldState = scaffoldState,
@@ -50,11 +44,35 @@ fun Lectures(navController: NavController) {
            )
            {
 
-               items(suggestions4.size) { i->
+               items(1) {
                    Boxlec(
-                       title = suggestions4[i],
+                       title = "تشفير",
                        icon = R.drawable.leca,
                        route = "listoflec_page",
+                       navController = navController
+                   )
+               }
+               items(1) {
+                   Boxlec(
+                       title = "الامن السيبراني",
+                       icon = R.drawable.leca,
+                       route = "listoflec_page1",
+                       navController = navController
+                   )
+               }
+               items(1) {
+                   Boxlec(
+                       title = "نمذجة ومحاكة",
+                       icon = R.drawable.leca,
+                       route = "listoflec_page2",
+                       navController = navController
+                   )
+               }
+               items(1) {
+                   Boxlec(
+                       title = "ادارة شبكات",
+                       icon = R.drawable.leca,
+                       route = "listoflec_page3",
                        navController = navController
                    )
                }

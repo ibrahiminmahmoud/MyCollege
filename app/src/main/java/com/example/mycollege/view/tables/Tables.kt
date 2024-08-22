@@ -50,7 +50,7 @@ fun Tables(navController: NavController) {
                 com.example.mycollege.view.home.Box(
                     "العملي",
                     R.drawable.code,
-                    "Tablesded_page",
+                    "Tablesded_page1",
                     navController,
                     60,
                     60
@@ -60,7 +60,7 @@ fun Tables(navController: NavController) {
                 com.example.mycollege.view.home.Box(
                     "المحاضرات",
                     R.drawable.lecture,
-                    "Tablesded_page",
+                    "Tablesded_page2",
                     navController,
                     60,
                     60
